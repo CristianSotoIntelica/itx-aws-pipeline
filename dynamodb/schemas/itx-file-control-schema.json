@@ -1,0 +1,78 @@
+{
+    "Table": {
+        "AttributeDefinitions": [
+            {
+                "AttributeName": "client_id",
+                "AttributeType": "S"
+            },
+            {
+                "AttributeName": "file_id",
+                "AttributeType": "S"
+            },
+            {
+                "AttributeName": "file_processing_date",
+                "AttributeType": "S"
+            }
+        ],
+        "TableName": "itx-file-control",
+        "KeySchema": [
+            {
+                "AttributeName": "file_id",
+                "KeyType": "HASH"
+            }
+        ],
+        "TableStatus": "ACTIVE",
+        "CreationDateTime": "2026-03-05T15:04:45.023000+00:00",
+        "ProvisionedThroughput": {
+            "NumberOfDecreasesToday": 0,
+            "ReadCapacityUnits": 0,
+            "WriteCapacityUnits": 0
+        },
+        "TableSizeBytes": 294022,
+        "ItemCount": 55,
+        "TableArn": "arn:aws:dynamodb:us-east-1:293472517631:table/itx-file-control",
+        "TableId": "5b4c30dd-693e-4d2b-a201-a84c9dd4d3b5",
+        "BillingModeSummary": {
+            "BillingMode": "PAY_PER_REQUEST",
+            "LastUpdateToPayPerRequestDateTime": "2026-03-05T15:04:45.023000+00:00"
+        },
+        "GlobalSecondaryIndexes": [
+            {
+                "IndexName": "client-date-index",
+                "KeySchema": [
+                    {
+                        "AttributeName": "client_id",
+                        "KeyType": "HASH"
+                    },
+                    {
+                        "AttributeName": "file_processing_date",
+                        "KeyType": "RANGE"
+                    }
+                ],
+                "Projection": {
+                    "ProjectionType": "ALL"
+                },
+                "IndexStatus": "ACTIVE",
+                "ProvisionedThroughput": {
+                    "NumberOfDecreasesToday": 0,
+                    "ReadCapacityUnits": 0,
+                    "WriteCapacityUnits": 0
+                },
+                "IndexSizeBytes": 294022,
+                "ItemCount": 55,
+                "IndexArn": "arn:aws:dynamodb:us-east-1:293472517631:table/itx-file-control/index/client-date-index",
+                "WarmThroughput": {
+                    "ReadUnitsPerSecond": 12000,
+                    "WriteUnitsPerSecond": 4000,
+                    "Status": "ACTIVE"
+                }
+            }
+        ],
+        "DeletionProtectionEnabled": false,
+        "WarmThroughput": {
+            "ReadUnitsPerSecond": 12000,
+            "WriteUnitsPerSecond": 4000,
+            "Status": "ACTIVE"
+        }
+    }
+}

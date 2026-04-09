@@ -1,0 +1,6 @@
+{
+    "Variables": {
+        "S3_BUCKET_LANDING": "itx-landing-dev",
+        "S3_BUCKET_ARCHIVE": "itx-archive-dev"
+    }
+}

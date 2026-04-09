@@ -1,0 +1,8 @@
+{
+    "Variables": {
+        "CHUNK_SIZE_MB": "64",
+        "S3_BUCKET_STAGING": "itx-staging-dev",
+        "S3_BUCKET_LANDING": "itx-landing-dev",
+        "FLUSH_BATCH_SIZE": "500000"
+    }
+}

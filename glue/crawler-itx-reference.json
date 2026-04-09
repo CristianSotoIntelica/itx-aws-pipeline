@@ -1,0 +1,50 @@
+{
+    "Crawler": {
+        "Name": "crawler_itx_reference",
+        "Role": "itx-glue-crawler-reference-role",
+        "Targets": {
+            "S3Targets": [
+                {
+                    "Path": "s3://itx-reference-dev",
+                    "Exclusions": []
+                }
+            ],
+            "JdbcTargets": [],
+            "MongoDBTargets": [],
+            "DynamoDBTargets": [],
+            "CatalogTargets": [],
+            "DeltaTargets": [],
+            "IcebergTargets": [],
+            "HudiTargets": []
+        },
+        "DatabaseName": "itx_reference",
+        "Classifiers": [],
+        "RecrawlPolicy": {
+            "RecrawlBehavior": "CRAWL_EVERYTHING"
+        },
+        "SchemaChangePolicy": {
+            "UpdateBehavior": "UPDATE_IN_DATABASE",
+            "DeleteBehavior": "DEPRECATE_IN_DATABASE"
+        },
+        "LineageConfiguration": {
+            "CrawlerLineageSettings": "DISABLE"
+        },
+        "State": "READY",
+        "CrawlElapsedTime": 0,
+        "CreationTime": "2026-03-31T16:21:46+00:00",
+        "LastUpdated": "2026-03-31T16:48:22+00:00",
+        "LastCrawl": {
+            "Status": "SUCCEEDED",
+            "LogGroup": "/aws-glue/crawlers",
+            "LogStream": "crawler_itx_reference",
+            "MessagePrefix": "bd7f4bbf-f608-47c6-bb01-22577e54dc17",
+            "StartTime": "2026-04-01T17:33:02+00:00"
+        },
+        "Version": 2,
+        "Configuration": "{\"Version\":1.0,\"Grouping\":{\"TableLevelConfiguration\":1},\"CreatePartitionIndex\":true}",
+        "LakeFormationConfiguration": {
+            "UseLakeFormationCredentials": false,
+            "AccountId": ""
+        }
+    }
+}

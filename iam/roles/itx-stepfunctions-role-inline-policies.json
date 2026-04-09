@@ -1,0 +1,6 @@
+{
+    "PolicyNames": [
+        "ITXStepFunctionsGluePolicy",
+        "stepfunctions-policy"
+    ]
+}

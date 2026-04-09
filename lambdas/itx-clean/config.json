@@ -1,0 +1,51 @@
+{
+    "FunctionName": "itx-clean",
+    "FunctionArn": "arn:aws:lambda:us-east-1:293472517631:function:itx-clean",
+    "Runtime": "python3.11",
+    "Role": "arn:aws:iam::293472517631:role/itx-lambda-router-role",
+    "Handler": "handler.lambda_handler",
+    "CodeSize": 3664,
+    "Description": "",
+    "Timeout": 900,
+    "MemorySize": 3008,
+    "LastModified": "2026-04-08T15:55:24.000+0000",
+    "CodeSha256": "Vey4hpx0T7Ok9dg/bwfjMfXdz+aMzzaZ7uNRjrXEML0=",
+    "Version": "$LATEST",
+    "Environment": {
+        "Variables": {
+            "DYNAMODB_FIELD_DEFINITION": "itx-visa-fields",
+            "CLEAN_CHUNK_SIZE": "100000",
+            "S3_BUCKET_STAGING": "itx-staging-dev"
+        }
+    },
+    "TracingConfig": {
+        "Mode": "PassThrough"
+    },
+    "RevisionId": "59e1e73f-088f-4846-a24c-bc31c2eee93c",
+    "Layers": [
+        {
+            "Arn": "arn:aws:lambda:us-east-1:293472517631:layer:itx-pandas-pyarrow:1",
+            "CodeSize": 64425635
+        }
+    ],
+    "State": "Active",
+    "LastUpdateStatus": "Successful",
+    "PackageType": "Zip",
+    "Architectures": [
+        "x86_64"
+    ],
+    "EphemeralStorage": {
+        "Size": 512
+    },
+    "SnapStart": {
+        "ApplyOn": "None",
+        "OptimizationStatus": "Off"
+    },
+    "RuntimeVersionConfig": {
+        "RuntimeVersionArn": "arn:aws:lambda:us-east-1::runtime:2dd1508137b11c824261f6af3f20ff8cb0ab84db8fe5f0e6a7301b8909985890"
+    },
+    "LoggingConfig": {
+        "LogFormat": "Text",
+        "LogGroup": "/aws/lambda/itx-clean"
+    }
+}

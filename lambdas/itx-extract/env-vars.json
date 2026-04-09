@@ -1,0 +1,7 @@
+{
+    "Variables": {
+        "DYNAMODB_FIELD_DEFINITION": "itx-visa-fields",
+        "S3_BUCKET_STAGING": "itx-staging-dev",
+        "EXTRACT_CHUNK_SIZE": "100000"
+    }
+}

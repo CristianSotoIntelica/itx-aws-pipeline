@@ -1,0 +1,50 @@
+{
+    "Crawler": {
+        "Name": "crawler_ebgr_visa_staging",
+        "Role": "service-role/AWSGlueServiceRole-glue-crawler-s3-staging-role",
+        "Targets": {
+            "S3Targets": [
+                {
+                    "Path": "s3://itx-staging-dev/EBGR/VISA/",
+                    "Exclusions": []
+                }
+            ],
+            "JdbcTargets": [],
+            "MongoDBTargets": [],
+            "DynamoDBTargets": [],
+            "CatalogTargets": [],
+            "DeltaTargets": [],
+            "IcebergTargets": [],
+            "HudiTargets": []
+        },
+        "DatabaseName": "ebgr_visa_staging",
+        "Classifiers": [],
+        "RecrawlPolicy": {
+            "RecrawlBehavior": "CRAWL_EVERYTHING"
+        },
+        "SchemaChangePolicy": {
+            "UpdateBehavior": "UPDATE_IN_DATABASE",
+            "DeleteBehavior": "DEPRECATE_IN_DATABASE"
+        },
+        "LineageConfiguration": {
+            "CrawlerLineageSettings": "DISABLE"
+        },
+        "State": "READY",
+        "CrawlElapsedTime": 0,
+        "CreationTime": "2026-03-11T21:14:18+00:00",
+        "LastUpdated": "2026-03-11T21:32:10+00:00",
+        "LastCrawl": {
+            "Status": "SUCCEEDED",
+            "LogGroup": "/aws-glue/crawlers",
+            "LogStream": "crawler_ebgr_visa_staging",
+            "MessagePrefix": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+            "StartTime": "2026-04-06T17:15:23+00:00"
+        },
+        "Version": 2,
+        "Configuration": "{\"Version\":1.0,\"Grouping\":{\"TableGroupingPolicy\":\"CombineCompatibleSchemas\",\"TableLevelConfiguration\":4},\"CreatePartitionIndex\":true}",
+        "LakeFormationConfiguration": {
+            "UseLakeFormationCredentials": false,
+            "AccountId": ""
+        }
+    }
+}

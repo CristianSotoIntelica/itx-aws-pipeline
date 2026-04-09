@@ -1,0 +1,8 @@
+{
+    "Variables": {
+        "STEP_FUNCTION_ARN": "arn:aws:states:us-east-1:293472517631:stateMachine:itx-main-orchestrator",
+        "DYNAMODB_TABLE_FILE_CONTROL": "itx-file-control",
+        "S3_BUCKET_LANDING": "itx-landing-dev",
+        "DYNAMODB_TABLE_FILE_PATTERN": "itx-file-pattern"
+    }
+}

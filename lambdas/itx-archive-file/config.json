@@ -1,0 +1,44 @@
+{
+    "FunctionName": "itx-archive-file",
+    "FunctionArn": "arn:aws:lambda:us-east-1:293472517631:function:itx-archive-file",
+    "Runtime": "python3.11",
+    "Role": "arn:aws:iam::293472517631:role/itx-lambda-router-role",
+    "Handler": "handler.lambda_handler",
+    "CodeSize": 1398,
+    "Description": "",
+    "Timeout": 60,
+    "MemorySize": 256,
+    "LastModified": "2026-03-09T15:54:17.011+0000",
+    "CodeSha256": "B2IMVQCdkXG4SG/zbJ5NCVRHH9tXUtyUOnkvIsRpHPM=",
+    "Version": "$LATEST",
+    "Environment": {
+        "Variables": {
+            "S3_BUCKET_LANDING": "itx-landing-dev",
+            "S3_BUCKET_ARCHIVE": "itx-archive-dev"
+        }
+    },
+    "TracingConfig": {
+        "Mode": "PassThrough"
+    },
+    "RevisionId": "7c8e1a4a-1cb1-4ff5-92ee-2cf104a22b0e",
+    "State": "Active",
+    "LastUpdateStatus": "Successful",
+    "PackageType": "Zip",
+    "Architectures": [
+        "x86_64"
+    ],
+    "EphemeralStorage": {
+        "Size": 512
+    },
+    "SnapStart": {
+        "ApplyOn": "None",
+        "OptimizationStatus": "Off"
+    },
+    "RuntimeVersionConfig": {
+        "RuntimeVersionArn": "arn:aws:lambda:us-east-1::runtime:0de7d4de4aef04631dc8443fb686ab8bf14de4d4a348cb0d407cce5f48aef7d8"
+    },
+    "LoggingConfig": {
+        "LogFormat": "Text",
+        "LogGroup": "/aws/lambda/itx-archive-file"
+    }
+}

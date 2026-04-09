@@ -1,0 +1,17 @@
+{
+    "Database": {
+        "Name": "ebgr_visa_staging",
+        "CreateTime": "2026-03-11T21:11:05+00:00",
+        "CreateTableDefaultPermissions": [
+            {
+                "Principal": {
+                    "DataLakePrincipalIdentifier": "IAM_ALLOWED_PRINCIPALS"
+                },
+                "Permissions": [
+                    "ALL"
+                ]
+            }
+        ],
+        "CatalogId": "293472517631"
+    }
+}

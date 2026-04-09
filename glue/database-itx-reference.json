@@ -1,0 +1,18 @@
+{
+    "Database": {
+        "Name": "itx_reference",
+        "Description": "Base de datos que contiene tablas maestras y datos de referencia como los tipos de cambio para Visa y Mastercard",
+        "CreateTime": "2026-03-31T16:15:46+00:00",
+        "CreateTableDefaultPermissions": [
+            {
+                "Principal": {
+                    "DataLakePrincipalIdentifier": "IAM_ALLOWED_PRINCIPALS"
+                },
+                "Permissions": [
+                    "ALL"
+                ]
+            }
+        ],
+        "CatalogId": "293472517631"
+    }
+}

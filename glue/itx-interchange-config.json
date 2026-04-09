@@ -1,0 +1,33 @@
+{
+    "Job": {
+        "Name": "itx-interchange",
+        "JobMode": "SCRIPT",
+        "JobRunQueuingEnabled": false,
+        "Description": "",
+        "Role": "arn:aws:iam::293472517631:role/itx-glue-interchange-role",
+        "CreatedOn": "2026-03-09T22:22:00.709000+00:00",
+        "LastModifiedOn": "2026-04-06T21:32:17.173000+00:00",
+        "ExecutionProperty": {
+            "MaxConcurrentRuns": 20
+        },
+        "Command": {
+            "Name": "glueetl",
+            "ScriptLocation": "s3://itx-staging-dev/scripts/interchange.py",
+            "PythonVersion": "3"
+        },
+        "DefaultArguments": {
+            "--job-bookmark-option": "job-bookmark-disable",
+            "--enable-job-insights": "true",
+            "--job-language": "python",
+            "--enable-continuous-cloudwatch-log": "true"
+        },
+        "MaxRetries": 0,
+        "AllocatedCapacity": 8,
+        "Timeout": 2880,
+        "MaxCapacity": 8.0,
+        "WorkerType": "G.2X",
+        "NumberOfWorkers": 4,
+        "GlueVersion": "4.0",
+        "ExecutionClass": "STANDARD"
+    }
+}

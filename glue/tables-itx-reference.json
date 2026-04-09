@@ -1,0 +1,892 @@
+{
+    "TableList": [
+        {
+            "Name": "country",
+            "DatabaseName": "itx_reference",
+            "Owner": "owner",
+            "CreateTime": "2026-03-31T19:48:16+00:00",
+            "UpdateTime": "2026-03-31T19:48:16+00:00",
+            "LastAccessTime": "2026-03-31T19:48:16+00:00",
+            "Retention": 0,
+            "StorageDescriptor": {
+                "Columns": [
+                    {
+                        "Name": "country_numeric",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "country_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "country_code_alternative",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "country_name",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "visa_region_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "mastercard_region_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "legacy_country_id",
+                        "Type": "bigint"
+                    }
+                ],
+                "Location": "s3://itx-reference-dev/country/",
+                "InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                "Compressed": false,
+                "NumberOfBuckets": -1,
+                "SerdeInfo": {
+                    "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    "Parameters": {
+                        "serialization.format": "1"
+                    }
+                },
+                "BucketColumns": [],
+                "SortColumns": [],
+                "Parameters": {
+                    "sizeKey": "13414",
+                    "objectCount": "1",
+                    "UPDATED_BY_CRAWLER": "crawler_itx_reference",
+                    "CRAWL_RUN_ID": "a85940b7-94d7-41e5-b37e-9a83ee0b63bb",
+                    "recordCount": "251",
+                    "CrawlerSchemaSerializerVersion": "1.0",
+                    "averageRecordSize": "51",
+                    "compressionType": "none",
+                    "CrawlerSchemaDeserializerVersion": "1.0",
+                    "classification": "parquet",
+                    "typeOfData": "file"
+                },
+                "StoredAsSubDirectories": false
+            },
+            "PartitionKeys": [],
+            "TableType": "EXTERNAL_TABLE",
+            "Parameters": {
+                "sizeKey": "13414",
+                "objectCount": "1",
+                "UPDATED_BY_CRAWLER": "crawler_itx_reference",
+                "CRAWL_RUN_ID": "a85940b7-94d7-41e5-b37e-9a83ee0b63bb",
+                "recordCount": "251",
+                "CrawlerSchemaSerializerVersion": "1.0",
+                "averageRecordSize": "51",
+                "compressionType": "none",
+                "CrawlerSchemaDeserializerVersion": "1.0",
+                "classification": "parquet",
+                "typeOfData": "file"
+            },
+            "CreatedBy": "arn:aws:sts::293472517631:assumed-role/itx-glue-crawler-reference-role/AWS-Crawler",
+            "IsRegisteredWithLakeFormation": false,
+            "CatalogId": "293472517631",
+            "VersionId": "0",
+            "IsMultiDialectView": false,
+            "IsMaterializedView": false
+        },
+        {
+            "Name": "currency",
+            "DatabaseName": "itx_reference",
+            "Owner": "owner",
+            "CreateTime": "2026-03-31T19:48:16+00:00",
+            "UpdateTime": "2026-03-31T19:48:16+00:00",
+            "LastAccessTime": "2026-03-31T19:48:16+00:00",
+            "Retention": 0,
+            "StorageDescriptor": {
+                "Columns": [
+                    {
+                        "Name": "currency_numeric_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "currency_alphabetic_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "currency_decimal_separator",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "currency_name",
+                        "Type": "string"
+                    }
+                ],
+                "Location": "s3://itx-reference-dev/currency/",
+                "InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                "Compressed": false,
+                "NumberOfBuckets": -1,
+                "SerdeInfo": {
+                    "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    "Parameters": {
+                        "serialization.format": "1"
+                    }
+                },
+                "BucketColumns": [],
+                "SortColumns": [],
+                "Parameters": {
+                    "sizeKey": "8394",
+                    "objectCount": "1",
+                    "UPDATED_BY_CRAWLER": "crawler_itx_reference",
+                    "CRAWL_RUN_ID": "a85940b7-94d7-41e5-b37e-9a83ee0b63bb",
+                    "recordCount": "182",
+                    "CrawlerSchemaSerializerVersion": "1.0",
+                    "averageRecordSize": "40",
+                    "compressionType": "none",
+                    "CrawlerSchemaDeserializerVersion": "1.0",
+                    "classification": "parquet",
+                    "typeOfData": "file"
+                },
+                "StoredAsSubDirectories": false
+            },
+            "PartitionKeys": [],
+            "TableType": "EXTERNAL_TABLE",
+            "Parameters": {
+                "sizeKey": "8394",
+                "objectCount": "1",
+                "UPDATED_BY_CRAWLER": "crawler_itx_reference",
+                "CRAWL_RUN_ID": "a85940b7-94d7-41e5-b37e-9a83ee0b63bb",
+                "recordCount": "182",
+                "CrawlerSchemaSerializerVersion": "1.0",
+                "averageRecordSize": "40",
+                "compressionType": "none",
+                "CrawlerSchemaDeserializerVersion": "1.0",
+                "classification": "parquet",
+                "typeOfData": "file"
+            },
+            "CreatedBy": "arn:aws:sts::293472517631:assumed-role/itx-glue-crawler-reference-role/AWS-Crawler",
+            "IsRegisteredWithLakeFormation": false,
+            "CatalogId": "293472517631",
+            "VersionId": "0",
+            "IsMultiDialectView": false,
+            "IsMaterializedView": false
+        },
+        {
+            "Name": "exchange_rate",
+            "DatabaseName": "itx_reference",
+            "Owner": "owner",
+            "CreateTime": "2026-03-31T19:48:16+00:00",
+            "UpdateTime": "2026-04-01T17:34:27+00:00",
+            "LastAccessTime": "2026-04-01T17:34:27+00:00",
+            "Retention": 0,
+            "StorageDescriptor": {
+                "Columns": [
+                    {
+                        "Name": "brand",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "currency_from",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "currency_to",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "currency_from_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "currency_to_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "exchange_value",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "year",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "month",
+                        "Type": "string"
+                    }
+                ],
+                "Location": "s3://itx-reference-dev/exchange_rate/",
+                "InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                "Compressed": false,
+                "NumberOfBuckets": -1,
+                "SerdeInfo": {
+                    "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    "Parameters": {
+                        "serialization.format": "1"
+                    }
+                },
+                "BucketColumns": [],
+                "SortColumns": [],
+                "Parameters": {
+                    "sizeKey": "41417883",
+                    "objectCount": "90",
+                    "UPDATED_BY_CRAWLER": "crawler_itx_reference",
+                    "CRAWL_RUN_ID": "bd7f4bbf-f608-47c6-bb01-22577e54dc17",
+                    "recordCount": "4563540",
+                    "CrawlerSchemaSerializerVersion": "1.0",
+                    "averageRecordSize": "10",
+                    "partition_filtering.enabled": "true",
+                    "compressionType": "none",
+                    "CrawlerSchemaDeserializerVersion": "1.0",
+                    "classification": "parquet",
+                    "typeOfData": "file"
+                },
+                "StoredAsSubDirectories": false
+            },
+            "PartitionKeys": [
+                {
+                    "Name": "rate_date",
+                    "Type": "string"
+                }
+            ],
+            "TableType": "EXTERNAL_TABLE",
+            "Parameters": {
+                "sizeKey": "41417883",
+                "objectCount": "90",
+                "UPDATED_BY_CRAWLER": "crawler_itx_reference",
+                "CRAWL_RUN_ID": "bd7f4bbf-f608-47c6-bb01-22577e54dc17",
+                "recordCount": "4563540",
+                "CrawlerSchemaSerializerVersion": "1.0",
+                "averageRecordSize": "10",
+                "partition_filtering.enabled": "true",
+                "compressionType": "none",
+                "CrawlerSchemaDeserializerVersion": "1.0",
+                "classification": "parquet",
+                "typeOfData": "file"
+            },
+            "CreatedBy": "arn:aws:sts::293472517631:assumed-role/itx-glue-crawler-reference-role/AWS-Crawler",
+            "IsRegisteredWithLakeFormation": false,
+            "CatalogId": "293472517631",
+            "VersionId": "2",
+            "IsMultiDialectView": false,
+            "IsMaterializedView": false
+        },
+        {
+            "Name": "visa_ardef",
+            "DatabaseName": "itx_reference",
+            "Owner": "owner",
+            "CreateTime": "2026-03-31T19:48:16+00:00",
+            "UpdateTime": "2026-03-31T19:48:16+00:00",
+            "LastAccessTime": "2026-03-31T19:48:16+00:00",
+            "Retention": 0,
+            "StorageDescriptor": {
+                "Columns": [
+                    {
+                        "Name": "file_id",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "row_id",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "row_full_data",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "file_header_date",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "table_type",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "table_mnemonic",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "record_type",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "table_key",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "low_key_for_range",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "delete_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "effective_date",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "valid_until",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "account_funding_source",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "account_level_processing_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "account_number_length",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "account_restricted_use",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "alternate_atm",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "ardef_country",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "ardef_region",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "b2b_program_id",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "base_ii_cib",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "check_digit_algorithm",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "combo_card",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "commercial_card_electronic_vat_evidence_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "commercial_card_level_2_data_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "commercial_card_level_3_enhanced_data_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "commercial_card_pos_prompting_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "country",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "domain",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "fast_funds",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "issuer_identifier",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "large_ticket",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "nnss_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "original_credit",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "original_credit_money_transfer",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "original_credit_online_gambling",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "prepaid_program_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "product_id",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "product_subtype",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "region",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "settlement_match",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "technology_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "token_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "travel_account_data",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "travel_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "row_creation_timestamp",
+                        "Type": "string"
+                    }
+                ],
+                "Location": "s3://itx-reference-dev/visa_ardef/",
+                "InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                "Compressed": false,
+                "NumberOfBuckets": -1,
+                "SerdeInfo": {
+                    "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    "Parameters": {
+                        "serialization.format": "1"
+                    }
+                },
+                "BucketColumns": [],
+                "SortColumns": [],
+                "Parameters": {
+                    "sizeKey": "42185948",
+                    "objectCount": "1",
+                    "UPDATED_BY_CRAWLER": "crawler_itx_reference",
+                    "CRAWL_RUN_ID": "a85940b7-94d7-41e5-b37e-9a83ee0b63bb",
+                    "recordCount": "1039963",
+                    "CrawlerSchemaSerializerVersion": "1.0",
+                    "averageRecordSize": "138",
+                    "compressionType": "none",
+                    "CrawlerSchemaDeserializerVersion": "1.0",
+                    "classification": "parquet",
+                    "typeOfData": "file"
+                },
+                "StoredAsSubDirectories": false
+            },
+            "PartitionKeys": [],
+            "TableType": "EXTERNAL_TABLE",
+            "Parameters": {
+                "sizeKey": "42185948",
+                "objectCount": "1",
+                "UPDATED_BY_CRAWLER": "crawler_itx_reference",
+                "CRAWL_RUN_ID": "a85940b7-94d7-41e5-b37e-9a83ee0b63bb",
+                "recordCount": "1039963",
+                "CrawlerSchemaSerializerVersion": "1.0",
+                "averageRecordSize": "138",
+                "compressionType": "none",
+                "CrawlerSchemaDeserializerVersion": "1.0",
+                "classification": "parquet",
+                "typeOfData": "file"
+            },
+            "CreatedBy": "arn:aws:sts::293472517631:assumed-role/itx-glue-crawler-reference-role/AWS-Crawler",
+            "IsRegisteredWithLakeFormation": false,
+            "CatalogId": "293472517631",
+            "VersionId": "0",
+            "IsMultiDialectView": false,
+            "IsMaterializedView": false
+        },
+        {
+            "Name": "visa_rules",
+            "DatabaseName": "itx_reference",
+            "Owner": "owner",
+            "CreateTime": "2026-04-01T17:12:41+00:00",
+            "UpdateTime": "2026-04-01T17:12:41+00:00",
+            "LastAccessTime": "2026-04-01T17:12:41+00:00",
+            "Retention": 0,
+            "StorageDescriptor": {
+                "Columns": [
+                    {
+                        "Name": "jurisdiction",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "region_country_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "guide_date",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "valid_from",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "valid_until",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "fee_program",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "intelica_id",
+                        "Type": "smallint"
+                    },
+                    {
+                        "Name": "fpi",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "fee_descriptor",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "fee_description",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "cod_hierarchy",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "program_default",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "fee_currency",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "fee_variable",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "fee_fixed",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "fee_min",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "fee_cap",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "business_mode",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "issuer_country",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "issuer_region",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "technology_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "product_id",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "fast_funds",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "travel_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "b2b_program_id",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "account_funding_source",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "nnss_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "product_subtype",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "transaction_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "transaction_code_qualifier",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "issuer_bin_8",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "acquirer_bin",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "acquirer_business_id",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "transaction_amount_currency",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "transaction_amount",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "acquirer_country",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "acquirer_region",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "merchant_country_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "merchant_country_region",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "merchant_category_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "requested_payment_service",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "usage_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "authorization_characteristics_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "authorization_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "pos_terminal_capability",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "cardholder_id_method",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "pos_entry_mode",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "timeliness",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "reimbursement_attribute",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "special_condition_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "fee_program_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "moto_eci_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "acceptance_terminal_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "prepaid_card_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "pos_environment_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_format_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_application_id",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "type_purchase",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "network_identification_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "message_reason_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "surcharge_amount",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "authorized_amount",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "authorization_response_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "merchant_verification_value",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "dynamic_currency_conversion_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "cvv2_result_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "national_tax_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "merchant_vat",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "summary_commodity",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "processing_code_transaction_type",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "point_of_service_condition_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "cashback",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "message_identifier",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "validation_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "v_i_p_full_financial_message_sets",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "sender_data",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "additional_sender_data",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "settlement_service",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "other_criteria_applies",
+                        "Type": "string"
+                    }
+                ],
+                "Location": "s3://itx-reference-dev/visa_rules/",
+                "InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                "Compressed": false,
+                "NumberOfBuckets": -1,
+                "SerdeInfo": {
+                    "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    "Parameters": {
+                        "serialization.format": "1"
+                    }
+                },
+                "BucketColumns": [],
+                "SortColumns": [],
+                "Parameters": {
+                    "sizeKey": "192600",
+                    "objectCount": "1",
+                    "UPDATED_BY_CRAWLER": "crawler_itx_reference",
+                    "CRAWL_RUN_ID": "29fa7d24-7ad9-4dd2-9ad5-37bfba06a944",
+                    "recordCount": "26350",
+                    "CrawlerSchemaSerializerVersion": "1.0",
+                    "averageRecordSize": "13",
+                    "compressionType": "none",
+                    "CrawlerSchemaDeserializerVersion": "1.0",
+                    "classification": "parquet",
+                    "typeOfData": "file"
+                },
+                "StoredAsSubDirectories": false
+            },
+            "PartitionKeys": [],
+            "TableType": "EXTERNAL_TABLE",
+            "Parameters": {
+                "sizeKey": "192600",
+                "objectCount": "1",
+                "UPDATED_BY_CRAWLER": "crawler_itx_reference",
+                "CRAWL_RUN_ID": "29fa7d24-7ad9-4dd2-9ad5-37bfba06a944",
+                "recordCount": "26350",
+                "CrawlerSchemaSerializerVersion": "1.0",
+                "averageRecordSize": "13",
+                "compressionType": "none",
+                "CrawlerSchemaDeserializerVersion": "1.0",
+                "classification": "parquet",
+                "typeOfData": "file"
+            },
+            "CreatedBy": "arn:aws:sts::293472517631:assumed-role/itx-glue-crawler-reference-role/AWS-Crawler",
+            "IsRegisteredWithLakeFormation": false,
+            "CatalogId": "293472517631",
+            "VersionId": "0",
+            "IsMultiDialectView": false,
+            "IsMaterializedView": false
+        }
+    ]
+}

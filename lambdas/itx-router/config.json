@@ -1,0 +1,46 @@
+{
+    "FunctionName": "itx-router",
+    "FunctionArn": "arn:aws:lambda:us-east-1:293472517631:function:itx-router",
+    "Runtime": "python3.11",
+    "Role": "arn:aws:iam::293472517631:role/itx-lambda-router-role",
+    "Handler": "handler.lambda_handler",
+    "CodeSize": 6413,
+    "Description": "",
+    "Timeout": 300,
+    "MemorySize": 512,
+    "LastModified": "2026-04-07T19:59:12.000+0000",
+    "CodeSha256": "upfXK2xnMtIONhetmlcNHDMDgGC/dpyPuNcVOQjnNiQ=",
+    "Version": "$LATEST",
+    "Environment": {
+        "Variables": {
+            "STEP_FUNCTION_ARN": "arn:aws:states:us-east-1:293472517631:stateMachine:itx-main-orchestrator",
+            "DYNAMODB_TABLE_FILE_CONTROL": "itx-file-control",
+            "S3_BUCKET_LANDING": "itx-landing-dev",
+            "DYNAMODB_TABLE_FILE_PATTERN": "itx-file-pattern"
+        }
+    },
+    "TracingConfig": {
+        "Mode": "PassThrough"
+    },
+    "RevisionId": "0c275f76-6d9f-4761-ad4e-50c668535989",
+    "State": "Active",
+    "LastUpdateStatus": "Successful",
+    "PackageType": "Zip",
+    "Architectures": [
+        "x86_64"
+    ],
+    "EphemeralStorage": {
+        "Size": 512
+    },
+    "SnapStart": {
+        "ApplyOn": "None",
+        "OptimizationStatus": "Off"
+    },
+    "RuntimeVersionConfig": {
+        "RuntimeVersionArn": "arn:aws:lambda:us-east-1::runtime:2dd1508137b11c824261f6af3f20ff8cb0ab84db8fe5f0e6a7301b8909985890"
+    },
+    "LoggingConfig": {
+        "LogFormat": "Text",
+        "LogGroup": "/aws/lambda/itx-router"
+    }
+}

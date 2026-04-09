@@ -1,0 +1,38 @@
+{
+    "FunctionName": "itx-store",
+    "FunctionArn": "arn:aws:lambda:us-east-1:293472517631:function:itx-store",
+    "Runtime": "python3.11",
+    "Role": "arn:aws:iam::293472517631:role/itx-lambda-router-role",
+    "Handler": "placeholder_generic.lambda_handler",
+    "CodeSize": 426,
+    "Description": "",
+    "Timeout": 3,
+    "MemorySize": 128,
+    "LastModified": "2026-03-09T22:21:48.390+0000",
+    "CodeSha256": "DSfKOXJSE6n/jtF869vLJx4avJTtTrKlftpPE5AK4uw=",
+    "Version": "$LATEST",
+    "TracingConfig": {
+        "Mode": "PassThrough"
+    },
+    "RevisionId": "d42f3186-b35b-45f2-9ff9-0c7868ee16ee",
+    "State": "Active",
+    "LastUpdateStatus": "Successful",
+    "PackageType": "Zip",
+    "Architectures": [
+        "x86_64"
+    ],
+    "EphemeralStorage": {
+        "Size": 512
+    },
+    "SnapStart": {
+        "ApplyOn": "None",
+        "OptimizationStatus": "Off"
+    },
+    "RuntimeVersionConfig": {
+        "RuntimeVersionArn": "arn:aws:lambda:us-east-1::runtime:0de7d4de4aef04631dc8443fb686ab8bf14de4d4a348cb0d407cce5f48aef7d8"
+    },
+    "LoggingConfig": {
+        "LogFormat": "Text",
+        "LogGroup": "/aws/lambda/itx-store"
+    }
+}

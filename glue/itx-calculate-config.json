@@ -1,0 +1,33 @@
+{
+    "Job": {
+        "Name": "itx-calculate",
+        "JobMode": "SCRIPT",
+        "JobRunQueuingEnabled": false,
+        "Description": "",
+        "Role": "arn:aws:iam::293472517631:role/itx-glue-calculate-role",
+        "CreatedOn": "2026-03-09T22:21:59.686000+00:00",
+        "LastModifiedOn": "2026-03-26T15:04:15.552000+00:00",
+        "ExecutionProperty": {
+            "MaxConcurrentRuns": 20
+        },
+        "Command": {
+            "Name": "glueetl",
+            "ScriptLocation": "s3://itx-staging-dev/scripts/calculate.py",
+            "PythonVersion": "3"
+        },
+        "DefaultArguments": {
+            "--enable-metrics": "true",
+            "--enable-job-insights": "true",
+            "--job-language": "python",
+            "--enable-continuous-cloudwatch-log": "true"
+        },
+        "MaxRetries": 0,
+        "AllocatedCapacity": 2,
+        "Timeout": 2880,
+        "MaxCapacity": 2.0,
+        "WorkerType": "G.1X",
+        "NumberOfWorkers": 2,
+        "GlueVersion": "4.0",
+        "ExecutionClass": "STANDARD"
+    }
+}

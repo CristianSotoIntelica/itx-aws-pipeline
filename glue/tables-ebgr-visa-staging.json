@@ -1,0 +1,4280 @@
+{
+    "TableList": [
+        {
+            "Name": "100_baseii_raw_drafts",
+            "DatabaseName": "ebgr_visa_staging",
+            "Owner": "owner",
+            "CreateTime": "2026-03-11T21:33:42+00:00",
+            "UpdateTime": "2026-04-06T17:16:45+00:00",
+            "LastAccessTime": "2026-04-06T17:16:45+00:00",
+            "Retention": 0,
+            "StorageDescriptor": {
+                "Columns": [
+                    {
+                        "Name": "record",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "0",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "1",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "2",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "3",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "4",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "5",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "6",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "7",
+                        "Type": "string"
+                    }
+                ],
+                "Location": "s3://itx-staging-dev/EBGR/VISA/100_baseii_raw_drafts/",
+                "InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                "Compressed": false,
+                "NumberOfBuckets": -1,
+                "SerdeInfo": {
+                    "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    "Parameters": {
+                        "serialization.format": "1"
+                    }
+                },
+                "BucketColumns": [],
+                "SortColumns": [],
+                "Parameters": {
+                    "sizeKey": "5211692",
+                    "objectCount": "1",
+                    "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                    "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                    "recordCount": "35622",
+                    "CrawlerSchemaSerializerVersion": "1.0",
+                    "averageRecordSize": "627",
+                    "partition_filtering.enabled": "true",
+                    "compressionType": "none",
+                    "CrawlerSchemaDeserializerVersion": "1.0",
+                    "classification": "parquet",
+                    "typeOfData": "file"
+                },
+                "StoredAsSubDirectories": false
+            },
+            "PartitionKeys": [
+                {
+                    "Name": "file_type",
+                    "Type": "string"
+                },
+                {
+                    "Name": "date",
+                    "Type": "string"
+                }
+            ],
+            "TableType": "EXTERNAL_TABLE",
+            "Parameters": {
+                "sizeKey": "5211692",
+                "objectCount": "1",
+                "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                "recordCount": "35622",
+                "CrawlerSchemaSerializerVersion": "1.0",
+                "averageRecordSize": "627",
+                "partition_filtering.enabled": "true",
+                "compressionType": "none",
+                "CrawlerSchemaDeserializerVersion": "1.0",
+                "classification": "parquet",
+                "typeOfData": "file"
+            },
+            "CreatedBy": "arn:aws:sts::293472517631:assumed-role/AWSGlueServiceRole-glue-crawler-s3-staging-role/AWS-Crawler",
+            "IsRegisteredWithLakeFormation": false,
+            "CatalogId": "293472517631",
+            "VersionId": "6",
+            "IsMultiDialectView": false,
+            "IsMaterializedView": false
+        },
+        {
+            "Name": "100_vss_110_raw",
+            "DatabaseName": "ebgr_visa_staging",
+            "Owner": "owner",
+            "CreateTime": "2026-03-11T21:33:42+00:00",
+            "UpdateTime": "2026-04-06T17:16:45+00:00",
+            "LastAccessTime": "2026-04-06T17:16:45+00:00",
+            "Retention": 0,
+            "StorageDescriptor": {
+                "Columns": [
+                    {
+                        "Name": "record",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "0",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "1",
+                        "Type": "string"
+                    }
+                ],
+                "Location": "s3://itx-staging-dev/EBGR/VISA/100_vss_110_raw/",
+                "InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                "Compressed": false,
+                "NumberOfBuckets": -1,
+                "SerdeInfo": {
+                    "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    "Parameters": {
+                        "serialization.format": "1"
+                    }
+                },
+                "BucketColumns": [],
+                "SortColumns": [],
+                "Parameters": {
+                    "sizeKey": "7609",
+                    "objectCount": "1",
+                    "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                    "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                    "recordCount": "192",
+                    "CrawlerSchemaSerializerVersion": "1.0",
+                    "averageRecordSize": "184",
+                    "partition_filtering.enabled": "true",
+                    "compressionType": "none",
+                    "CrawlerSchemaDeserializerVersion": "1.0",
+                    "classification": "parquet",
+                    "typeOfData": "file"
+                },
+                "StoredAsSubDirectories": false
+            },
+            "PartitionKeys": [
+                {
+                    "Name": "file_type",
+                    "Type": "string"
+                },
+                {
+                    "Name": "date",
+                    "Type": "string"
+                }
+            ],
+            "TableType": "EXTERNAL_TABLE",
+            "Parameters": {
+                "sizeKey": "7609",
+                "objectCount": "1",
+                "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                "recordCount": "192",
+                "CrawlerSchemaSerializerVersion": "1.0",
+                "averageRecordSize": "184",
+                "partition_filtering.enabled": "true",
+                "compressionType": "none",
+                "CrawlerSchemaDeserializerVersion": "1.0",
+                "classification": "parquet",
+                "typeOfData": "file"
+            },
+            "CreatedBy": "arn:aws:sts::293472517631:assumed-role/AWSGlueServiceRole-glue-crawler-s3-staging-role/AWS-Crawler",
+            "IsRegisteredWithLakeFormation": false,
+            "CatalogId": "293472517631",
+            "VersionId": "6",
+            "IsMultiDialectView": false,
+            "IsMaterializedView": false
+        },
+        {
+            "Name": "100_vss_120_raw",
+            "DatabaseName": "ebgr_visa_staging",
+            "Owner": "owner",
+            "CreateTime": "2026-03-11T21:33:42+00:00",
+            "UpdateTime": "2026-04-06T17:16:45+00:00",
+            "LastAccessTime": "2026-04-06T17:16:45+00:00",
+            "Retention": 0,
+            "StorageDescriptor": {
+                "Columns": [
+                    {
+                        "Name": "record",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "0",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "1",
+                        "Type": "string"
+                    }
+                ],
+                "Location": "s3://itx-staging-dev/EBGR/VISA/100_vss_120_raw/",
+                "InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                "Compressed": false,
+                "NumberOfBuckets": -1,
+                "SerdeInfo": {
+                    "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    "Parameters": {
+                        "serialization.format": "1"
+                    }
+                },
+                "BucketColumns": [],
+                "SortColumns": [],
+                "Parameters": {
+                    "sizeKey": "9687",
+                    "objectCount": "1",
+                    "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                    "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                    "recordCount": "186",
+                    "CrawlerSchemaSerializerVersion": "1.0",
+                    "averageRecordSize": "251",
+                    "partition_filtering.enabled": "true",
+                    "compressionType": "none",
+                    "CrawlerSchemaDeserializerVersion": "1.0",
+                    "classification": "parquet",
+                    "typeOfData": "file"
+                },
+                "StoredAsSubDirectories": false
+            },
+            "PartitionKeys": [
+                {
+                    "Name": "file_type",
+                    "Type": "string"
+                },
+                {
+                    "Name": "date",
+                    "Type": "string"
+                }
+            ],
+            "TableType": "EXTERNAL_TABLE",
+            "Parameters": {
+                "sizeKey": "9687",
+                "objectCount": "1",
+                "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                "recordCount": "186",
+                "CrawlerSchemaSerializerVersion": "1.0",
+                "averageRecordSize": "251",
+                "partition_filtering.enabled": "true",
+                "compressionType": "none",
+                "CrawlerSchemaDeserializerVersion": "1.0",
+                "classification": "parquet",
+                "typeOfData": "file"
+            },
+            "CreatedBy": "arn:aws:sts::293472517631:assumed-role/AWSGlueServiceRole-glue-crawler-s3-staging-role/AWS-Crawler",
+            "IsRegisteredWithLakeFormation": false,
+            "CatalogId": "293472517631",
+            "VersionId": "6",
+            "IsMultiDialectView": false,
+            "IsMaterializedView": false
+        },
+        {
+            "Name": "100_vss_130_raw",
+            "DatabaseName": "ebgr_visa_staging",
+            "Owner": "owner",
+            "CreateTime": "2026-03-11T21:33:42+00:00",
+            "UpdateTime": "2026-04-06T17:16:45+00:00",
+            "LastAccessTime": "2026-04-06T17:16:45+00:00",
+            "Retention": 0,
+            "StorageDescriptor": {
+                "Columns": [
+                    {
+                        "Name": "record",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "0",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "1",
+                        "Type": "string"
+                    }
+                ],
+                "Location": "s3://itx-staging-dev/EBGR/VISA/100_vss_130_raw/",
+                "InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                "Compressed": false,
+                "NumberOfBuckets": -1,
+                "SerdeInfo": {
+                    "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    "Parameters": {
+                        "serialization.format": "1"
+                    }
+                },
+                "BucketColumns": [],
+                "SortColumns": [],
+                "Parameters": {
+                    "sizeKey": "51214",
+                    "objectCount": "1",
+                    "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                    "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                    "recordCount": "1434",
+                    "CrawlerSchemaSerializerVersion": "1.0",
+                    "averageRecordSize": "267",
+                    "partition_filtering.enabled": "true",
+                    "compressionType": "none",
+                    "CrawlerSchemaDeserializerVersion": "1.0",
+                    "classification": "parquet",
+                    "typeOfData": "file"
+                },
+                "StoredAsSubDirectories": false
+            },
+            "PartitionKeys": [
+                {
+                    "Name": "file_type",
+                    "Type": "string"
+                },
+                {
+                    "Name": "date",
+                    "Type": "string"
+                }
+            ],
+            "TableType": "EXTERNAL_TABLE",
+            "Parameters": {
+                "sizeKey": "51214",
+                "objectCount": "1",
+                "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                "recordCount": "1434",
+                "CrawlerSchemaSerializerVersion": "1.0",
+                "averageRecordSize": "267",
+                "partition_filtering.enabled": "true",
+                "compressionType": "none",
+                "CrawlerSchemaDeserializerVersion": "1.0",
+                "classification": "parquet",
+                "typeOfData": "file"
+            },
+            "CreatedBy": "arn:aws:sts::293472517631:assumed-role/AWSGlueServiceRole-glue-crawler-s3-staging-role/AWS-Crawler",
+            "IsRegisteredWithLakeFormation": false,
+            "CatalogId": "293472517631",
+            "VersionId": "6",
+            "IsMultiDialectView": false,
+            "IsMaterializedView": false
+        },
+        {
+            "Name": "100_vss_140_raw",
+            "DatabaseName": "ebgr_visa_staging",
+            "Owner": "owner",
+            "CreateTime": "2026-03-11T21:33:42+00:00",
+            "UpdateTime": "2026-04-06T17:16:45+00:00",
+            "LastAccessTime": "2026-04-06T17:16:45+00:00",
+            "Retention": 0,
+            "StorageDescriptor": {
+                "Columns": [
+                    {
+                        "Name": "record",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "0",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "1",
+                        "Type": "string"
+                    }
+                ],
+                "Location": "s3://itx-staging-dev/EBGR/VISA/100_vss_140_raw/",
+                "InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                "Compressed": false,
+                "NumberOfBuckets": -1,
+                "SerdeInfo": {
+                    "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    "Parameters": {
+                        "serialization.format": "1"
+                    }
+                },
+                "BucketColumns": [],
+                "SortColumns": [],
+                "Parameters": {
+                    "sizeKey": "19612",
+                    "objectCount": "1",
+                    "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                    "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                    "recordCount": "528",
+                    "CrawlerSchemaSerializerVersion": "1.0",
+                    "averageRecordSize": "253",
+                    "partition_filtering.enabled": "true",
+                    "compressionType": "none",
+                    "CrawlerSchemaDeserializerVersion": "1.0",
+                    "classification": "parquet",
+                    "typeOfData": "file"
+                },
+                "StoredAsSubDirectories": false
+            },
+            "PartitionKeys": [
+                {
+                    "Name": "file_type",
+                    "Type": "string"
+                },
+                {
+                    "Name": "date",
+                    "Type": "string"
+                }
+            ],
+            "TableType": "EXTERNAL_TABLE",
+            "Parameters": {
+                "sizeKey": "19612",
+                "objectCount": "1",
+                "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                "recordCount": "528",
+                "CrawlerSchemaSerializerVersion": "1.0",
+                "averageRecordSize": "253",
+                "partition_filtering.enabled": "true",
+                "compressionType": "none",
+                "CrawlerSchemaDeserializerVersion": "1.0",
+                "classification": "parquet",
+                "typeOfData": "file"
+            },
+            "CreatedBy": "arn:aws:sts::293472517631:assumed-role/AWSGlueServiceRole-glue-crawler-s3-staging-role/AWS-Crawler",
+            "IsRegisteredWithLakeFormation": false,
+            "CatalogId": "293472517631",
+            "VersionId": "6",
+            "IsMultiDialectView": false,
+            "IsMaterializedView": false
+        },
+        {
+            "Name": "200_baseii_ext_drafts",
+            "DatabaseName": "ebgr_visa_staging",
+            "Owner": "owner",
+            "CreateTime": "2026-03-16T23:36:07+00:00",
+            "UpdateTime": "2026-04-06T17:16:45+00:00",
+            "LastAccessTime": "2026-04-06T17:16:45+00:00",
+            "Retention": 0,
+            "StorageDescriptor": {
+                "Columns": [
+                    {
+                        "Name": "record",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "draft_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "draft_code_qualifier_0",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "account_number",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "account_number_extension",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "floor_limit_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "crb_exception_file_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "account_reference_number_format_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "account_reference_number_acquiring_identifier",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "account_reference_number_date",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "account_reference_number_film_locator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "account_reference_number_check_digit",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "acquirer_business_id",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "purchase_date",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "destination_amount",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "destination_currency_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "source_amount",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "source_currency_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "merchant_name",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "merchant_city",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "merchant_country_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "merchant_category_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "merchant_zip_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "merchant_state_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "requested_payment_service",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "usage_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "reason_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "settlement_flag",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "authorization_characteristics_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "authorization_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "pos_terminal_capacity",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "cardholder_id_method",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "collection_only_flag",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "pos_entry_mode",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "central_processing_date",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "reimbursement_attribute",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "draft_code_qualifier_1",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "documentation_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "member_message_text",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "special_condition_indicator_risk_identification_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "special_condition_indicator_merchant_draft_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "fee_program_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "issuier_charge",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "card_acceptor_id",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "terminal_id",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "national_reimbursement_fee",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "moto_ec_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "special_chargeback_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "conversion_date",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "acceptance_terminal_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "prepaid_card_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "service_development_field",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "avs_response_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "authorization_source_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "purchase_identifier_format",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "account_selection",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "installment_payment_account",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "purchase_identifier",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "cashback",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "chip_condition_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "pos_environment",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "draft_code_qualifier_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "draft_code_qualifier_ft",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "draft_code_qualifier_cr",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "draft_component_sequence_number_ft",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "draft_component_sequence_number_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "fleet_employee_number",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "reserved_fl_1",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "reversed",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_application_id_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "fast_funds_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_format_code_cr",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_format_code_ft",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_format_code_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_application_id_cr",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "reserved_fl_2",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "type_of_purchase_ft",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "expanded_fuel_type_ft",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "source_of_funds",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "payment_reversal_reason_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "expanded_fuel_type_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "service_type_ft_1",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "sender_reference_number",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "unit_of_measure_ft",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "quantity_ft",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "type_of_purchase_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "fuel_type",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "unit_of_measure_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "quantity_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "unit_cost_ft",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "sender_account_number",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "unit_cost_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "gross_fuel_price",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "gross_fuel_price_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "net_fuel_price_ft",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "net_fuel_price_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "gross_non_fuel_price_ft",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "sender_name",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "gross_non_fuel_price_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "net_non_fuel_price_ft",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "net_non_fuel_price_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "odometer_reading_ft",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "odometer_reading_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "sender_address",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "vat_tax_rate_ft",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "fleet_trailer_number",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "vat_tax_rate_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "miscellaneous_fuel_tax",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "fleet_additional_prompted_data_1",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "product_qualifier",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "reserved_fl_3",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "miscellaneous_non_fuel_tax",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "sender_city",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "fleet_additional_prompted_data_2",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "service_type_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "miscellaneous_fuel_tax_exemption_status",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "miscellaneous_non_fuel_tax_exemption_status",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "reserved_fl_4",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "sender_state",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_application_id_ft",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "sender_country",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "reserved_ft",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "draft_code_qualifier_sp",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "draft_code_qualifier_df",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "draft_code_qualifier_sd",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "draft_code_qualifier_pd",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "agent_unique_id_sp",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "agent_unique_id_sd",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "agent_unique_id_df",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_format_code_sd",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_format_code_df",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_format_code_pd",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_format_code_sp",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "promotion_type_pd",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "network_identification_code_sp",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "network_identification_code_sd",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "network_identification_code_df",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "promotion_code_pd",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "contact_for_information_sd",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "contact_for_information_sp",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "contact_for_information_df",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "adjustment_processing_indicator_sp",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "adjustment_processing_indicator_df",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "adjustment_processing_indicator_sd",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "message_reason_code_sd",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "message_reason_code_df",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "message_reason_code_sp",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "dispute_condition",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "surcharge_amount_sp",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "surcharge_amount_sd",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "vrol_financial_id",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "surcharge_indicator_sp",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "surcharge_indicator_sd",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "visa_internal_use",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "visa_internal_use_only",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "vrol_case_number",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "vrol_bundle_case_number",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "promotion_type_sp",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "promotion_code_sp",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "client_case_number",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "surcharge_amount_in_cardholder_billing_currency_sp",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "surcharge_amount_in_cardholder_billing_currency_sd",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "dispute_status",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "surcharge_amount_df",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "money_transfer_foreign_exchange_fee",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "payment_account_reference_sp",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "surcharge_indicator_df",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "payment_account_reference_sd",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "token_requestor_id_sp",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "token_requestor_id_sd",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "draft_code_qualifier_5",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "draft_identifier",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "authorized_amount",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "authorization_currency_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "authorization_response_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "validation_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "excluded_draft_identifier_reason",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "multiple_clearing_sequence_number",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "multiple_clearing_sequence_count",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "market_specific_authorization_data_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "total_authorized_amount",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "information_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "merchant_telephone_number",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "additional_data_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "merchant_volume_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "electronic_commerce_goods_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "merchant_verification_value",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "interchange_fee_amount",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "interchange_fee_sign",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "source_currency_to_base_currency_exchange_rate",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "base_currency_to_destination_currency_exchange_rate",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "optional_issuer_isa_amount",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "product_id",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "program_id",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "dcc_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "account_type_identification",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "spend_quality_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "pan_token",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "cvv_result_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "draft_code_qualifier_6",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "local_tax",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "local_tax_included",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "national_tax",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "national_tax_included",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "merchant_vat_registration_number",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "customer_vat_registration_number",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "summary_commodity_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "other_tax",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "message_identifier",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "time_of_purchase",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "customer_reference_identifier",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "non_fuel_product_code_1",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "non_fuel_product_code_2",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "non_fuel_product_code_3",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "non_fuel_product_code_4",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "non_fuel_product_code_5",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "non_fuel_product_code_6",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "non_fuel_product_code_7",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "non_fuel_product_code_8",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "merchant_postal_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "draft_type",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "terminal_capability_profile",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "application_interchange_profile",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "issuer_application_data_byte_8",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "issuer_script_1_results",
+                        "Type": "string"
+                    }
+                ],
+                "Location": "s3://itx-staging-dev/EBGR/VISA/200_baseii_ext_drafts/",
+                "InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                "Compressed": false,
+                "NumberOfBuckets": -1,
+                "SerdeInfo": {
+                    "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    "Parameters": {
+                        "serialization.format": "1"
+                    }
+                },
+                "BucketColumns": [],
+                "SortColumns": [],
+                "Parameters": {
+                    "sizeKey": "3243387",
+                    "objectCount": "1",
+                    "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                    "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                    "recordCount": "35622",
+                    "CrawlerSchemaSerializerVersion": "1.0",
+                    "averageRecordSize": "146",
+                    "partition_filtering.enabled": "true",
+                    "compressionType": "none",
+                    "CrawlerSchemaDeserializerVersion": "1.0",
+                    "classification": "parquet",
+                    "typeOfData": "file"
+                },
+                "StoredAsSubDirectories": false
+            },
+            "PartitionKeys": [
+                {
+                    "Name": "file_type",
+                    "Type": "string"
+                },
+                {
+                    "Name": "date",
+                    "Type": "string"
+                }
+            ],
+            "TableType": "EXTERNAL_TABLE",
+            "Parameters": {
+                "sizeKey": "3243387",
+                "objectCount": "1",
+                "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                "recordCount": "35622",
+                "CrawlerSchemaSerializerVersion": "1.0",
+                "averageRecordSize": "146",
+                "partition_filtering.enabled": "true",
+                "compressionType": "none",
+                "CrawlerSchemaDeserializerVersion": "1.0",
+                "classification": "parquet",
+                "typeOfData": "file"
+            },
+            "CreatedBy": "arn:aws:sts::293472517631:assumed-role/AWSGlueServiceRole-glue-crawler-s3-staging-role/AWS-Crawler",
+            "IsRegisteredWithLakeFormation": false,
+            "CatalogId": "293472517631",
+            "VersionId": "6",
+            "IsMultiDialectView": false,
+            "IsMaterializedView": false
+        },
+        {
+            "Name": "200_vss_110_ext",
+            "DatabaseName": "ebgr_visa_staging",
+            "Owner": "owner",
+            "CreateTime": "2026-03-16T23:36:07+00:00",
+            "UpdateTime": "2026-04-06T17:16:45+00:00",
+            "LastAccessTime": "2026-04-06T17:16:45+00:00",
+            "Retention": 0,
+            "StorageDescriptor": {
+                "Columns": [
+                    {
+                        "Name": "record",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "destination_identifier_110",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "reporting_for_sre_identifier_110",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "rollup_to_sre_identifier_110",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "funds_transfer_sre_identifier_110",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "settlement_service_identifier_110",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "settlement_currency_code_110",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "no_data_indicator_110",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "report_date_110",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "amount_type_110",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_mode_110",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "count_110",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "credit_amount",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "debit_amount",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "summary_level_110",
+                        "Type": "string"
+                    }
+                ],
+                "Location": "s3://itx-staging-dev/EBGR/VISA/200_vss_110_ext/",
+                "InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                "Compressed": false,
+                "NumberOfBuckets": -1,
+                "SerdeInfo": {
+                    "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    "Parameters": {
+                        "serialization.format": "1"
+                    }
+                },
+                "BucketColumns": [],
+                "SortColumns": [],
+                "Parameters": {
+                    "sizeKey": "13602",
+                    "objectCount": "1",
+                    "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                    "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                    "recordCount": "192",
+                    "CrawlerSchemaSerializerVersion": "1.0",
+                    "averageRecordSize": "23",
+                    "partition_filtering.enabled": "true",
+                    "compressionType": "none",
+                    "CrawlerSchemaDeserializerVersion": "1.0",
+                    "classification": "parquet",
+                    "typeOfData": "file"
+                },
+                "StoredAsSubDirectories": false
+            },
+            "PartitionKeys": [
+                {
+                    "Name": "file_type",
+                    "Type": "string"
+                },
+                {
+                    "Name": "date",
+                    "Type": "string"
+                }
+            ],
+            "TableType": "EXTERNAL_TABLE",
+            "Parameters": {
+                "sizeKey": "13602",
+                "objectCount": "1",
+                "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                "recordCount": "192",
+                "CrawlerSchemaSerializerVersion": "1.0",
+                "averageRecordSize": "23",
+                "partition_filtering.enabled": "true",
+                "compressionType": "none",
+                "CrawlerSchemaDeserializerVersion": "1.0",
+                "classification": "parquet",
+                "typeOfData": "file"
+            },
+            "CreatedBy": "arn:aws:sts::293472517631:assumed-role/AWSGlueServiceRole-glue-crawler-s3-staging-role/AWS-Crawler",
+            "IsRegisteredWithLakeFormation": false,
+            "CatalogId": "293472517631",
+            "VersionId": "6",
+            "IsMultiDialectView": false,
+            "IsMaterializedView": false
+        },
+        {
+            "Name": "200_vss_120_ext",
+            "DatabaseName": "ebgr_visa_staging",
+            "Owner": "owner",
+            "CreateTime": "2026-03-16T23:36:07+00:00",
+            "UpdateTime": "2026-04-06T17:16:45+00:00",
+            "LastAccessTime": "2026-04-06T17:16:45+00:00",
+            "Retention": 0,
+            "StorageDescriptor": {
+                "Columns": [
+                    {
+                        "Name": "record",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "destination_identifier_120",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "reporting_for_sre_identifier_120",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "rollup_to_sre_identifier_120",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "funds_transfer_sre_identifier_120",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "settlement_service_identifier_120",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "settlement_currency_code_120",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "clearing_currency_code_120",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_mode_120",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "no_data_indicator_120",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_draft_type_120",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_draft_cycle_120",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "reversal_indicator_120",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "return_indicator_120",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "summary_level_120",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "rate_table_id",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "count_120",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "clearing_amount_clearing_currency",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "interchange_value_credits_settlement_currency",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "interchange_value_debits_settlement_currency",
+                        "Type": "string"
+                    }
+                ],
+                "Location": "s3://itx-staging-dev/EBGR/VISA/200_vss_120_ext/",
+                "InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                "Compressed": false,
+                "NumberOfBuckets": -1,
+                "SerdeInfo": {
+                    "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    "Parameters": {
+                        "serialization.format": "1"
+                    }
+                },
+                "BucketColumns": [],
+                "SortColumns": [],
+                "Parameters": {
+                    "sizeKey": "18965",
+                    "objectCount": "1",
+                    "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                    "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                    "recordCount": "186",
+                    "CrawlerSchemaSerializerVersion": "1.0",
+                    "averageRecordSize": "34",
+                    "partition_filtering.enabled": "true",
+                    "compressionType": "none",
+                    "CrawlerSchemaDeserializerVersion": "1.0",
+                    "classification": "parquet",
+                    "typeOfData": "file"
+                },
+                "StoredAsSubDirectories": false
+            },
+            "PartitionKeys": [
+                {
+                    "Name": "file_type",
+                    "Type": "string"
+                },
+                {
+                    "Name": "date",
+                    "Type": "string"
+                }
+            ],
+            "TableType": "EXTERNAL_TABLE",
+            "Parameters": {
+                "sizeKey": "18965",
+                "objectCount": "1",
+                "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                "recordCount": "186",
+                "CrawlerSchemaSerializerVersion": "1.0",
+                "averageRecordSize": "34",
+                "partition_filtering.enabled": "true",
+                "compressionType": "none",
+                "CrawlerSchemaDeserializerVersion": "1.0",
+                "classification": "parquet",
+                "typeOfData": "file"
+            },
+            "CreatedBy": "arn:aws:sts::293472517631:assumed-role/AWSGlueServiceRole-glue-crawler-s3-staging-role/AWS-Crawler",
+            "IsRegisteredWithLakeFormation": false,
+            "CatalogId": "293472517631",
+            "VersionId": "6",
+            "IsMultiDialectView": false,
+            "IsMaterializedView": false
+        },
+        {
+            "Name": "200_vss_130_ext",
+            "DatabaseName": "ebgr_visa_staging",
+            "Owner": "owner",
+            "CreateTime": "2026-03-16T23:36:07+00:00",
+            "UpdateTime": "2026-04-06T17:16:45+00:00",
+            "LastAccessTime": "2026-04-06T17:16:45+00:00",
+            "Retention": 0,
+            "StorageDescriptor": {
+                "Columns": [
+                    {
+                        "Name": "record",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "destination_identifier_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "reporting_for_sre_identifier_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "rollup_to_sre_identifier_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "funds_transfer_sre_identifier_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "settlement_service_identifier_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "settlement_currency_code_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "clearing_currency_code_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_mode_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "no_data_indicator_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_draft_type_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_draft_cycle_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "reversal_indicator_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "return_indicator_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "jurisdiction_code_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "interregional_routing_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "source_country_code_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "destination_country_code_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "source_region_code_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "destination_region_code_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "fee_level_descriptor",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "cr_db_net_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "summary_level_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "count_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "interchange_amount_settlement_currency_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "reimbursement_fee_credits_settlement_currency",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "reimbursement_fee_debits_settlement_currency",
+                        "Type": "string"
+                    }
+                ],
+                "Location": "s3://itx-staging-dev/EBGR/VISA/200_vss_130_ext/",
+                "InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                "Compressed": false,
+                "NumberOfBuckets": -1,
+                "SerdeInfo": {
+                    "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    "Parameters": {
+                        "serialization.format": "1"
+                    }
+                },
+                "BucketColumns": [],
+                "SortColumns": [],
+                "Parameters": {
+                    "sizeKey": "43697",
+                    "objectCount": "1",
+                    "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                    "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                    "recordCount": "1434",
+                    "CrawlerSchemaSerializerVersion": "1.0",
+                    "averageRecordSize": "31",
+                    "partition_filtering.enabled": "true",
+                    "compressionType": "none",
+                    "CrawlerSchemaDeserializerVersion": "1.0",
+                    "classification": "parquet",
+                    "typeOfData": "file"
+                },
+                "StoredAsSubDirectories": false
+            },
+            "PartitionKeys": [
+                {
+                    "Name": "file_type",
+                    "Type": "string"
+                },
+                {
+                    "Name": "date",
+                    "Type": "string"
+                }
+            ],
+            "TableType": "EXTERNAL_TABLE",
+            "Parameters": {
+                "sizeKey": "43697",
+                "objectCount": "1",
+                "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                "recordCount": "1434",
+                "CrawlerSchemaSerializerVersion": "1.0",
+                "averageRecordSize": "31",
+                "partition_filtering.enabled": "true",
+                "compressionType": "none",
+                "CrawlerSchemaDeserializerVersion": "1.0",
+                "classification": "parquet",
+                "typeOfData": "file"
+            },
+            "CreatedBy": "arn:aws:sts::293472517631:assumed-role/AWSGlueServiceRole-glue-crawler-s3-staging-role/AWS-Crawler",
+            "IsRegisteredWithLakeFormation": false,
+            "CatalogId": "293472517631",
+            "VersionId": "6",
+            "IsMultiDialectView": false,
+            "IsMaterializedView": false
+        },
+        {
+            "Name": "200_vss_140_ext",
+            "DatabaseName": "ebgr_visa_staging",
+            "Owner": "owner",
+            "CreateTime": "2026-03-16T23:36:07+00:00",
+            "UpdateTime": "2026-04-06T17:16:45+00:00",
+            "LastAccessTime": "2026-04-06T17:16:45+00:00",
+            "Retention": 0,
+            "StorageDescriptor": {
+                "Columns": [
+                    {
+                        "Name": "record",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "destination_identifier_140",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "reporting_for_sre_identifier_140",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "rollup_to_sre_identifier_140",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "settlement_currency_code_140",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_mode_140",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "settlement_date",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "report_date_140",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "charge_type_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_draft_type_140",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_draft_cycle_140",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "jurisdiction_code_140",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "source_region_code_140",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "destination_region_code_140",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "summary_level_140",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "count_140",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "interchange_amount_settlement_currency_140",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "visa_charges_credits_settlement_currency",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "visa_charges_debits_settlement_currency",
+                        "Type": "string"
+                    }
+                ],
+                "Location": "s3://itx-staging-dev/EBGR/VISA/200_vss_140_ext/",
+                "InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                "Compressed": false,
+                "NumberOfBuckets": -1,
+                "SerdeInfo": {
+                    "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    "Parameters": {
+                        "serialization.format": "1"
+                    }
+                },
+                "BucketColumns": [],
+                "SortColumns": [],
+                "Parameters": {
+                    "sizeKey": "22063",
+                    "objectCount": "1",
+                    "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                    "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                    "recordCount": "528",
+                    "CrawlerSchemaSerializerVersion": "1.0",
+                    "averageRecordSize": "27",
+                    "partition_filtering.enabled": "true",
+                    "compressionType": "none",
+                    "CrawlerSchemaDeserializerVersion": "1.0",
+                    "classification": "parquet",
+                    "typeOfData": "file"
+                },
+                "StoredAsSubDirectories": false
+            },
+            "PartitionKeys": [
+                {
+                    "Name": "file_type",
+                    "Type": "string"
+                },
+                {
+                    "Name": "date",
+                    "Type": "string"
+                }
+            ],
+            "TableType": "EXTERNAL_TABLE",
+            "Parameters": {
+                "sizeKey": "22063",
+                "objectCount": "1",
+                "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                "recordCount": "528",
+                "CrawlerSchemaSerializerVersion": "1.0",
+                "averageRecordSize": "27",
+                "partition_filtering.enabled": "true",
+                "compressionType": "none",
+                "CrawlerSchemaDeserializerVersion": "1.0",
+                "classification": "parquet",
+                "typeOfData": "file"
+            },
+            "CreatedBy": "arn:aws:sts::293472517631:assumed-role/AWSGlueServiceRole-glue-crawler-s3-staging-role/AWS-Crawler",
+            "IsRegisteredWithLakeFormation": false,
+            "CatalogId": "293472517631",
+            "VersionId": "6",
+            "IsMultiDialectView": false,
+            "IsMaterializedView": false
+        },
+        {
+            "Name": "300_baseii_cln_drafts",
+            "DatabaseName": "ebgr_visa_staging",
+            "Owner": "owner",
+            "CreateTime": "2026-03-19T17:06:19+00:00",
+            "UpdateTime": "2026-04-06T17:16:45+00:00",
+            "LastAccessTime": "2026-04-06T17:16:45+00:00",
+            "Retention": 0,
+            "StorageDescriptor": {
+                "Columns": [
+                    {
+                        "Name": "record",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "draft_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "draft_code_qualifier_0",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "account_number",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "account_number_extension",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "floor_limit_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "crb_exception_file_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "account_reference_number_format_code",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "account_reference_number_acquiring_identifier",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "account_reference_number_date",
+                        "Type": "timestamp"
+                    },
+                    {
+                        "Name": "account_reference_number_film_locator",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "account_reference_number_check_digit",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "acquirer_business_id",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "purchase_date",
+                        "Type": "timestamp"
+                    },
+                    {
+                        "Name": "destination_amount",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "destination_currency_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "source_amount",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "source_currency_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "merchant_name",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "merchant_city",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "merchant_country_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "merchant_category_code",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "merchant_zip_code",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "merchant_state_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "requested_payment_service",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "usage_code",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "reason_code",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "settlement_flag",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "authorization_characteristics_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "authorization_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "pos_terminal_capacity",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "cardholder_id_method",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "collection_only_flag",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "pos_entry_mode",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "central_processing_date",
+                        "Type": "timestamp"
+                    },
+                    {
+                        "Name": "reimbursement_attribute",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "draft_code_qualifier_1",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "documentation_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "member_message_text",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "special_condition_indicator_risk_identification_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "special_condition_indicator_merchant_draft_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "fee_program_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "issuier_charge",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "card_acceptor_id",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "terminal_id",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "national_reimbursement_fee",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "moto_ec_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "special_chargeback_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "conversion_date",
+                        "Type": "timestamp"
+                    },
+                    {
+                        "Name": "acceptance_terminal_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "prepaid_card_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "service_development_field",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "avs_response_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "authorization_source_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "purchase_identifier_format",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "account_selection",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "installment_payment_account",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "purchase_identifier",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "cashback",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "chip_condition_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "pos_environment",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "draft_code_qualifier_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "draft_code_qualifier_ft",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "draft_code_qualifier_cr",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "draft_component_sequence_number_ft",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "draft_component_sequence_number_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "fleet_employee_number",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "reserved_fl_1",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "reversed",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_application_id_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "fast_funds_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_format_code_cr",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_format_code_ft",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_format_code_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_application_id_cr",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "reserved_fl_2",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "type_of_purchase_ft",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "expanded_fuel_type_ft",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "source_of_funds",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "payment_reversal_reason_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "expanded_fuel_type_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "service_type_ft_1",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "sender_reference_number",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "unit_of_measure_ft",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "quantity_ft",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "type_of_purchase_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "fuel_type",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "unit_of_measure_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "quantity_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "unit_cost_ft",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "sender_account_number",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "unit_cost_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "gross_fuel_price",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "gross_fuel_price_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "net_fuel_price_ft",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "net_fuel_price_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "gross_non_fuel_price_ft",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "sender_name",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "gross_non_fuel_price_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "net_non_fuel_price_ft",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "net_non_fuel_price_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "odometer_reading_ft",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "odometer_reading_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "sender_address",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "vat_tax_rate_ft",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "fleet_trailer_number",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "vat_tax_rate_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "miscellaneous_fuel_tax",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "fleet_additional_prompted_data_1",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "product_qualifier",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "reserved_fl_3",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "miscellaneous_non_fuel_tax",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "sender_city",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "fleet_additional_prompted_data_2",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "service_type_fl",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "miscellaneous_fuel_tax_exemption_status",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "miscellaneous_non_fuel_tax_exemption_status",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "reserved_fl_4",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "sender_state",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_application_id_ft",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "sender_country",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "reserved_ft",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "draft_code_qualifier_sp",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "draft_code_qualifier_df",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "draft_code_qualifier_sd",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "draft_code_qualifier_pd",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "agent_unique_id_sp",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "agent_unique_id_sd",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "agent_unique_id_df",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_format_code_sd",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_format_code_df",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_format_code_pd",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_format_code_sp",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "promotion_type_pd",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "network_identification_code_sp",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "network_identification_code_sd",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "network_identification_code_df",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "promotion_code_pd",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "contact_for_information_sd",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "contact_for_information_sp",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "contact_for_information_df",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "adjustment_processing_indicator_sp",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "adjustment_processing_indicator_df",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "adjustment_processing_indicator_sd",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "message_reason_code_sd",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "message_reason_code_df",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "message_reason_code_sp",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "dispute_condition",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "surcharge_amount_sp",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "surcharge_amount_sd",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "vrol_financial_id",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "surcharge_indicator_sp",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "surcharge_indicator_sd",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "visa_internal_use",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "visa_internal_use_only",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "vrol_case_number",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "vrol_bundle_case_number",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "promotion_type_sp",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "promotion_code_sp",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "client_case_number",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "surcharge_amount_in_cardholder_billing_currency_sp",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "surcharge_amount_in_cardholder_billing_currency_sd",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "dispute_status",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "surcharge_amount_df",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "money_transfer_foreign_exchange_fee",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "payment_account_reference_sp",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "surcharge_indicator_df",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "payment_account_reference_sd",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "token_requestor_id_sp",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "token_requestor_id_sd",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "draft_code_qualifier_5",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "draft_identifier",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "authorized_amount",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "authorization_currency_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "authorization_response_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "validation_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "excluded_draft_identifier_reason",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "multiple_clearing_sequence_number",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "multiple_clearing_sequence_count",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "market_specific_authorization_data_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "total_authorized_amount",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "information_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "merchant_telephone_number",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "additional_data_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "merchant_volume_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "electronic_commerce_goods_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "merchant_verification_value",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "interchange_fee_amount",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "interchange_fee_sign",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "source_currency_to_base_currency_exchange_rate",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "base_currency_to_destination_currency_exchange_rate",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "optional_issuer_isa_amount",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "product_id",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "program_id",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "dcc_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "account_type_identification",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "spend_quality_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "pan_token",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "cvv_result_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "draft_code_qualifier_6",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "local_tax",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "local_tax_included",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "national_tax",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "national_tax_included",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "merchant_vat_registration_number",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "customer_vat_registration_number",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "summary_commodity_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "other_tax",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "message_identifier",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "time_of_purchase",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "customer_reference_identifier",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "non_fuel_product_code_1",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "non_fuel_product_code_2",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "non_fuel_product_code_3",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "non_fuel_product_code_4",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "non_fuel_product_code_5",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "non_fuel_product_code_6",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "non_fuel_product_code_7",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "non_fuel_product_code_8",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "merchant_postal_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "draft_type",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "terminal_capability_profile",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "application_interchange_profile",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "issuer_application_data_byte_8",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "issuer_script_1_results",
+                        "Type": "string"
+                    }
+                ],
+                "Location": "s3://itx-staging-dev/EBGR/VISA/300_baseii_cln_drafts/",
+                "InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                "Compressed": false,
+                "NumberOfBuckets": -1,
+                "SerdeInfo": {
+                    "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    "Parameters": {
+                        "serialization.format": "1"
+                    }
+                },
+                "BucketColumns": [],
+                "SortColumns": [],
+                "Parameters": {
+                    "sizeKey": "2826014",
+                    "objectCount": "1",
+                    "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                    "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                    "recordCount": "35622",
+                    "CrawlerSchemaSerializerVersion": "1.0",
+                    "averageRecordSize": "109",
+                    "partition_filtering.enabled": "true",
+                    "compressionType": "none",
+                    "CrawlerSchemaDeserializerVersion": "1.0",
+                    "classification": "parquet",
+                    "typeOfData": "file"
+                },
+                "StoredAsSubDirectories": false
+            },
+            "PartitionKeys": [
+                {
+                    "Name": "file_type",
+                    "Type": "string"
+                },
+                {
+                    "Name": "date",
+                    "Type": "string"
+                }
+            ],
+            "TableType": "EXTERNAL_TABLE",
+            "Parameters": {
+                "sizeKey": "2826014",
+                "objectCount": "1",
+                "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                "recordCount": "35622",
+                "CrawlerSchemaSerializerVersion": "1.0",
+                "averageRecordSize": "109",
+                "partition_filtering.enabled": "true",
+                "compressionType": "none",
+                "CrawlerSchemaDeserializerVersion": "1.0",
+                "classification": "parquet",
+                "typeOfData": "file"
+            },
+            "CreatedBy": "arn:aws:sts::293472517631:assumed-role/AWSGlueServiceRole-glue-crawler-s3-staging-role/AWS-Crawler",
+            "IsRegisteredWithLakeFormation": false,
+            "CatalogId": "293472517631",
+            "VersionId": "7",
+            "IsMultiDialectView": false,
+            "IsMaterializedView": false
+        },
+        {
+            "Name": "300_vss_110_cln",
+            "DatabaseName": "ebgr_visa_staging",
+            "Owner": "owner",
+            "CreateTime": "2026-03-19T17:06:19+00:00",
+            "UpdateTime": "2026-04-06T17:16:45+00:00",
+            "LastAccessTime": "2026-04-06T17:16:45+00:00",
+            "Retention": 0,
+            "StorageDescriptor": {
+                "Columns": [
+                    {
+                        "Name": "record",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "destination_identifier_110",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "reporting_for_sre_identifier_110",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "rollup_to_sre_identifier_110",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "funds_transfer_sre_identifier_110",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "settlement_service_identifier_110",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "settlement_currency_code_110",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "no_data_indicator_110",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "report_date_110",
+                        "Type": "timestamp"
+                    },
+                    {
+                        "Name": "amount_type_110",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_mode_110",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "count_110",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "credit_amount",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "debit_amount",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "summary_level_110",
+                        "Type": "string"
+                    }
+                ],
+                "Location": "s3://itx-staging-dev/EBGR/VISA/300_vss_110_cln/",
+                "InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                "Compressed": false,
+                "NumberOfBuckets": -1,
+                "SerdeInfo": {
+                    "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    "Parameters": {
+                        "serialization.format": "1"
+                    }
+                },
+                "BucketColumns": [],
+                "SortColumns": [],
+                "Parameters": {
+                    "sizeKey": "8042",
+                    "objectCount": "1",
+                    "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                    "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                    "recordCount": "192",
+                    "CrawlerSchemaSerializerVersion": "1.0",
+                    "averageRecordSize": "23",
+                    "partition_filtering.enabled": "true",
+                    "compressionType": "none",
+                    "CrawlerSchemaDeserializerVersion": "1.0",
+                    "classification": "parquet",
+                    "typeOfData": "file"
+                },
+                "StoredAsSubDirectories": false
+            },
+            "PartitionKeys": [
+                {
+                    "Name": "file_type",
+                    "Type": "string"
+                },
+                {
+                    "Name": "date",
+                    "Type": "string"
+                }
+            ],
+            "TableType": "EXTERNAL_TABLE",
+            "Parameters": {
+                "sizeKey": "8042",
+                "objectCount": "1",
+                "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                "recordCount": "192",
+                "CrawlerSchemaSerializerVersion": "1.0",
+                "averageRecordSize": "23",
+                "partition_filtering.enabled": "true",
+                "compressionType": "none",
+                "CrawlerSchemaDeserializerVersion": "1.0",
+                "classification": "parquet",
+                "typeOfData": "file"
+            },
+            "CreatedBy": "arn:aws:sts::293472517631:assumed-role/AWSGlueServiceRole-glue-crawler-s3-staging-role/AWS-Crawler",
+            "IsRegisteredWithLakeFormation": false,
+            "CatalogId": "293472517631",
+            "VersionId": "7",
+            "IsMultiDialectView": false,
+            "IsMaterializedView": false
+        },
+        {
+            "Name": "300_vss_120_cln",
+            "DatabaseName": "ebgr_visa_staging",
+            "Owner": "owner",
+            "CreateTime": "2026-03-19T17:06:19+00:00",
+            "UpdateTime": "2026-04-06T17:16:45+00:00",
+            "LastAccessTime": "2026-04-06T17:16:45+00:00",
+            "Retention": 0,
+            "StorageDescriptor": {
+                "Columns": [
+                    {
+                        "Name": "record",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "destination_identifier_120",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "reporting_for_sre_identifier_120",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "rollup_to_sre_identifier_120",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "funds_transfer_sre_identifier_120",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "settlement_service_identifier_120",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "settlement_currency_code_120",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "clearing_currency_code_120",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_mode_120",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "no_data_indicator_120",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_draft_type_120",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_draft_cycle_120",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "reversal_indicator_120",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "return_indicator_120",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "summary_level_120",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "rate_table_id",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "count_120",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "clearing_amount_clearing_currency",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "interchange_value_credits_settlement_currency",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "interchange_value_debits_settlement_currency",
+                        "Type": "string"
+                    }
+                ],
+                "Location": "s3://itx-staging-dev/EBGR/VISA/300_vss_120_cln/",
+                "InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                "Compressed": false,
+                "NumberOfBuckets": -1,
+                "SerdeInfo": {
+                    "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    "Parameters": {
+                        "serialization.format": "1"
+                    }
+                },
+                "BucketColumns": [],
+                "SortColumns": [],
+                "Parameters": {
+                    "sizeKey": "11080",
+                    "objectCount": "1",
+                    "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                    "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                    "recordCount": "186",
+                    "CrawlerSchemaSerializerVersion": "1.0",
+                    "averageRecordSize": "34",
+                    "partition_filtering.enabled": "true",
+                    "compressionType": "none",
+                    "CrawlerSchemaDeserializerVersion": "1.0",
+                    "classification": "parquet",
+                    "typeOfData": "file"
+                },
+                "StoredAsSubDirectories": false
+            },
+            "PartitionKeys": [
+                {
+                    "Name": "file_type",
+                    "Type": "string"
+                },
+                {
+                    "Name": "date",
+                    "Type": "string"
+                }
+            ],
+            "TableType": "EXTERNAL_TABLE",
+            "Parameters": {
+                "sizeKey": "11080",
+                "objectCount": "1",
+                "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                "recordCount": "186",
+                "CrawlerSchemaSerializerVersion": "1.0",
+                "averageRecordSize": "34",
+                "partition_filtering.enabled": "true",
+                "compressionType": "none",
+                "CrawlerSchemaDeserializerVersion": "1.0",
+                "classification": "parquet",
+                "typeOfData": "file"
+            },
+            "CreatedBy": "arn:aws:sts::293472517631:assumed-role/AWSGlueServiceRole-glue-crawler-s3-staging-role/AWS-Crawler",
+            "IsRegisteredWithLakeFormation": false,
+            "CatalogId": "293472517631",
+            "VersionId": "6",
+            "IsMultiDialectView": false,
+            "IsMaterializedView": false
+        },
+        {
+            "Name": "300_vss_130_cln",
+            "DatabaseName": "ebgr_visa_staging",
+            "Owner": "owner",
+            "CreateTime": "2026-03-19T17:06:19+00:00",
+            "UpdateTime": "2026-04-06T17:16:45+00:00",
+            "LastAccessTime": "2026-04-06T17:16:45+00:00",
+            "Retention": 0,
+            "StorageDescriptor": {
+                "Columns": [
+                    {
+                        "Name": "record",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "destination_identifier_130",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "reporting_for_sre_identifier_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "rollup_to_sre_identifier_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "funds_transfer_sre_identifier_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "settlement_service_identifier_130",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "settlement_currency_code_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "clearing_currency_code_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_mode_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "no_data_indicator_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_draft_type_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_draft_cycle_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "reversal_indicator_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "return_indicator_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "jurisdiction_code_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "interregional_routing_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "source_country_code_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "destination_country_code_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "source_region_code_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "destination_region_code_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "fee_level_descriptor",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "cr_db_net_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "summary_level_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "count_130",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "interchange_amount_settlement_currency_130",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "reimbursement_fee_credits_settlement_currency",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "reimbursement_fee_debits_settlement_currency",
+                        "Type": "double"
+                    }
+                ],
+                "Location": "s3://itx-staging-dev/EBGR/VISA/300_vss_130_cln/",
+                "InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                "Compressed": false,
+                "NumberOfBuckets": -1,
+                "SerdeInfo": {
+                    "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    "Parameters": {
+                        "serialization.format": "1"
+                    }
+                },
+                "BucketColumns": [],
+                "SortColumns": [],
+                "Parameters": {
+                    "sizeKey": "31925",
+                    "objectCount": "1",
+                    "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                    "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                    "recordCount": "1434",
+                    "CrawlerSchemaSerializerVersion": "1.0",
+                    "averageRecordSize": "24",
+                    "partition_filtering.enabled": "true",
+                    "compressionType": "none",
+                    "CrawlerSchemaDeserializerVersion": "1.0",
+                    "classification": "parquet",
+                    "typeOfData": "file"
+                },
+                "StoredAsSubDirectories": false
+            },
+            "PartitionKeys": [
+                {
+                    "Name": "file_type",
+                    "Type": "string"
+                },
+                {
+                    "Name": "date",
+                    "Type": "string"
+                }
+            ],
+            "TableType": "EXTERNAL_TABLE",
+            "Parameters": {
+                "sizeKey": "31925",
+                "objectCount": "1",
+                "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                "recordCount": "1434",
+                "CrawlerSchemaSerializerVersion": "1.0",
+                "averageRecordSize": "24",
+                "partition_filtering.enabled": "true",
+                "compressionType": "none",
+                "CrawlerSchemaDeserializerVersion": "1.0",
+                "classification": "parquet",
+                "typeOfData": "file"
+            },
+            "CreatedBy": "arn:aws:sts::293472517631:assumed-role/AWSGlueServiceRole-glue-crawler-s3-staging-role/AWS-Crawler",
+            "IsRegisteredWithLakeFormation": false,
+            "CatalogId": "293472517631",
+            "VersionId": "6",
+            "IsMultiDialectView": false,
+            "IsMaterializedView": false
+        },
+        {
+            "Name": "300_vss_140_cln",
+            "DatabaseName": "ebgr_visa_staging",
+            "Owner": "owner",
+            "CreateTime": "2026-03-19T17:06:19+00:00",
+            "UpdateTime": "2026-04-06T17:16:45+00:00",
+            "LastAccessTime": "2026-04-06T17:16:45+00:00",
+            "Retention": 0,
+            "StorageDescriptor": {
+                "Columns": [
+                    {
+                        "Name": "record",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "destination_identifier_140",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "reporting_for_sre_identifier_140",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "rollup_to_sre_identifier_140",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "settlement_currency_code_140",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_mode_140",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "settlement_date",
+                        "Type": "timestamp"
+                    },
+                    {
+                        "Name": "report_date_140",
+                        "Type": "timestamp"
+                    },
+                    {
+                        "Name": "charge_type_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_draft_type_140",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_draft_cycle_140",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "jurisdiction_code_140",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "source_region_code_140",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "destination_region_code_140",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "summary_level_140",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "count_140",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "interchange_amount_settlement_currency_140",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "visa_charges_credits_settlement_currency",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "visa_charges_debits_settlement_currency",
+                        "Type": "string"
+                    }
+                ],
+                "Location": "s3://itx-staging-dev/EBGR/VISA/300_vss_140_cln/",
+                "InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                "Compressed": false,
+                "NumberOfBuckets": -1,
+                "SerdeInfo": {
+                    "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    "Parameters": {
+                        "serialization.format": "1"
+                    }
+                },
+                "BucketColumns": [],
+                "SortColumns": [],
+                "Parameters": {
+                    "sizeKey": "14760",
+                    "objectCount": "1",
+                    "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                    "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                    "recordCount": "528",
+                    "CrawlerSchemaSerializerVersion": "1.0",
+                    "averageRecordSize": "27",
+                    "partition_filtering.enabled": "true",
+                    "compressionType": "none",
+                    "CrawlerSchemaDeserializerVersion": "1.0",
+                    "classification": "parquet",
+                    "typeOfData": "file"
+                },
+                "StoredAsSubDirectories": false
+            },
+            "PartitionKeys": [
+                {
+                    "Name": "file_type",
+                    "Type": "string"
+                },
+                {
+                    "Name": "date",
+                    "Type": "string"
+                }
+            ],
+            "TableType": "EXTERNAL_TABLE",
+            "Parameters": {
+                "sizeKey": "14760",
+                "objectCount": "1",
+                "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                "recordCount": "528",
+                "CrawlerSchemaSerializerVersion": "1.0",
+                "averageRecordSize": "27",
+                "partition_filtering.enabled": "true",
+                "compressionType": "none",
+                "CrawlerSchemaDeserializerVersion": "1.0",
+                "classification": "parquet",
+                "typeOfData": "file"
+            },
+            "CreatedBy": "arn:aws:sts::293472517631:assumed-role/AWSGlueServiceRole-glue-crawler-s3-staging-role/AWS-Crawler",
+            "IsRegisteredWithLakeFormation": false,
+            "CatalogId": "293472517631",
+            "VersionId": "7",
+            "IsMultiDialectView": false,
+            "IsMaterializedView": false
+        },
+        {
+            "Name": "400_baseii_cal_drafts",
+            "DatabaseName": "ebgr_visa_staging",
+            "Owner": "owner",
+            "CreateTime": "2026-03-25T14:32:16+00:00",
+            "UpdateTime": "2026-04-06T17:16:45+00:00",
+            "LastAccessTime": "2026-04-06T17:16:45+00:00",
+            "Retention": 0,
+            "StorageDescriptor": {
+                "Columns": [
+                    {
+                        "Name": "record",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "ardef_country",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "authorization_code_valid",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "b2b_program_id",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_application_id",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_format_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_mode",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "business_transaction_type",
+                        "Type": "int"
+                    },
+                    {
+                        "Name": "fast_funds",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "funding_source",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "issuer_bin_8",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "issuer_country",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "issuer_region",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "jurisdiction",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "jurisdiction_assigned",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "jurisdiction_country",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "jurisdiction_region",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "message_reason_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "network_identification_code",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "nnss_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "product_id",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "product_subtype",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "reversal_indicator",
+                        "Type": "int"
+                    },
+                    {
+                        "Name": "source_currency_code_alphabetic",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "surcharge_amount",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "technology_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "timeliness",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "travel_indicator",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "type_of_purchase",
+                        "Type": "string"
+                    }
+                ],
+                "Location": "s3://itx-staging-dev/EBGR/VISA/400_baseii_cal_drafts/",
+                "InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                "Compressed": false,
+                "NumberOfBuckets": -1,
+                "SerdeInfo": {
+                    "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    "Parameters": {
+                        "serialization.format": "1"
+                    }
+                },
+                "BucketColumns": [],
+                "SortColumns": [],
+                "Parameters": {
+                    "sizeKey": "191786",
+                    "objectCount": "2",
+                    "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                    "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                    "recordCount": "35622",
+                    "CrawlerSchemaSerializerVersion": "1.0",
+                    "averageRecordSize": "9",
+                    "partition_filtering.enabled": "true",
+                    "compressionType": "none",
+                    "CrawlerSchemaDeserializerVersion": "1.0",
+                    "classification": "parquet",
+                    "typeOfData": "file"
+                },
+                "StoredAsSubDirectories": false
+            },
+            "PartitionKeys": [
+                {
+                    "Name": "file_type",
+                    "Type": "string"
+                },
+                {
+                    "Name": "date",
+                    "Type": "string"
+                },
+                {
+                    "Name": "partition_2",
+                    "Type": "string"
+                }
+            ],
+            "TableType": "EXTERNAL_TABLE",
+            "Parameters": {
+                "sizeKey": "191786",
+                "objectCount": "2",
+                "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                "recordCount": "35622",
+                "CrawlerSchemaSerializerVersion": "1.0",
+                "averageRecordSize": "9",
+                "partition_filtering.enabled": "true",
+                "compressionType": "none",
+                "CrawlerSchemaDeserializerVersion": "1.0",
+                "classification": "parquet",
+                "typeOfData": "file"
+            },
+            "CreatedBy": "arn:aws:sts::293472517631:assumed-role/AWSGlueServiceRole-glue-crawler-s3-staging-role/AWS-Crawler",
+            "IsRegisteredWithLakeFormation": false,
+            "CatalogId": "293472517631",
+            "VersionId": "6",
+            "IsMultiDialectView": false,
+            "IsMaterializedView": false
+        },
+        {
+            "Name": "400_vss_110_cal",
+            "DatabaseName": "ebgr_visa_staging",
+            "Owner": "owner",
+            "CreateTime": "2026-03-24T16:25:31+00:00",
+            "UpdateTime": "2026-04-06T17:16:45+00:00",
+            "LastAccessTime": "2026-04-06T17:16:45+00:00",
+            "Retention": 0,
+            "StorageDescriptor": {
+                "Columns": [
+                    {
+                        "Name": "record",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "vss_report_type",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "vss_aggregation_level",
+                        "Type": "bigint"
+                    }
+                ],
+                "Location": "s3://itx-staging-dev/EBGR/VISA/400_vss_110_cal/",
+                "InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                "Compressed": false,
+                "NumberOfBuckets": -1,
+                "SerdeInfo": {
+                    "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    "Parameters": {
+                        "serialization.format": "1"
+                    }
+                },
+                "BucketColumns": [],
+                "SortColumns": [],
+                "Parameters": {
+                    "sizeKey": "1983",
+                    "objectCount": "2",
+                    "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                    "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                    "recordCount": "192",
+                    "CrawlerSchemaSerializerVersion": "1.0",
+                    "averageRecordSize": "8",
+                    "partition_filtering.enabled": "true",
+                    "compressionType": "none",
+                    "CrawlerSchemaDeserializerVersion": "1.0",
+                    "classification": "parquet",
+                    "typeOfData": "file"
+                },
+                "StoredAsSubDirectories": false
+            },
+            "PartitionKeys": [
+                {
+                    "Name": "file_type",
+                    "Type": "string"
+                },
+                {
+                    "Name": "date",
+                    "Type": "string"
+                },
+                {
+                    "Name": "partition_2",
+                    "Type": "string"
+                }
+            ],
+            "TableType": "EXTERNAL_TABLE",
+            "Parameters": {
+                "sizeKey": "1983",
+                "objectCount": "2",
+                "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                "recordCount": "192",
+                "CrawlerSchemaSerializerVersion": "1.0",
+                "averageRecordSize": "8",
+                "partition_filtering.enabled": "true",
+                "compressionType": "none",
+                "CrawlerSchemaDeserializerVersion": "1.0",
+                "classification": "parquet",
+                "typeOfData": "file"
+            },
+            "CreatedBy": "arn:aws:sts::293472517631:assumed-role/AWSGlueServiceRole-glue-crawler-s3-staging-role/AWS-Crawler",
+            "IsRegisteredWithLakeFormation": false,
+            "CatalogId": "293472517631",
+            "VersionId": "8",
+            "IsMultiDialectView": false,
+            "IsMaterializedView": false
+        },
+        {
+            "Name": "400_vss_120_cal",
+            "DatabaseName": "ebgr_visa_staging",
+            "Owner": "owner",
+            "CreateTime": "2026-03-24T16:25:31+00:00",
+            "UpdateTime": "2026-04-06T17:16:45+00:00",
+            "LastAccessTime": "2026-04-06T17:16:45+00:00",
+            "Retention": 0,
+            "StorageDescriptor": {
+                "Columns": [
+                    {
+                        "Name": "record",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "vss_report_type",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "vss_aggregation_level",
+                        "Type": "bigint"
+                    }
+                ],
+                "Location": "s3://itx-staging-dev/EBGR/VISA/400_vss_120_cal/",
+                "InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                "Compressed": false,
+                "NumberOfBuckets": -1,
+                "SerdeInfo": {
+                    "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    "Parameters": {
+                        "serialization.format": "1"
+                    }
+                },
+                "BucketColumns": [],
+                "SortColumns": [],
+                "Parameters": {
+                    "sizeKey": "1909",
+                    "objectCount": "2",
+                    "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                    "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                    "recordCount": "186",
+                    "CrawlerSchemaSerializerVersion": "1.0",
+                    "averageRecordSize": "8",
+                    "partition_filtering.enabled": "true",
+                    "compressionType": "none",
+                    "CrawlerSchemaDeserializerVersion": "1.0",
+                    "classification": "parquet",
+                    "typeOfData": "file"
+                },
+                "StoredAsSubDirectories": false
+            },
+            "PartitionKeys": [
+                {
+                    "Name": "file_type",
+                    "Type": "string"
+                },
+                {
+                    "Name": "date",
+                    "Type": "string"
+                },
+                {
+                    "Name": "partition_2",
+                    "Type": "string"
+                }
+            ],
+            "TableType": "EXTERNAL_TABLE",
+            "Parameters": {
+                "sizeKey": "1909",
+                "objectCount": "2",
+                "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                "recordCount": "186",
+                "CrawlerSchemaSerializerVersion": "1.0",
+                "averageRecordSize": "8",
+                "partition_filtering.enabled": "true",
+                "compressionType": "none",
+                "CrawlerSchemaDeserializerVersion": "1.0",
+                "classification": "parquet",
+                "typeOfData": "file"
+            },
+            "CreatedBy": "arn:aws:sts::293472517631:assumed-role/AWSGlueServiceRole-glue-crawler-s3-staging-role/AWS-Crawler",
+            "IsRegisteredWithLakeFormation": false,
+            "CatalogId": "293472517631",
+            "VersionId": "8",
+            "IsMultiDialectView": false,
+            "IsMaterializedView": false
+        },
+        {
+            "Name": "400_vss_130_cal",
+            "DatabaseName": "ebgr_visa_staging",
+            "Owner": "owner",
+            "CreateTime": "2026-03-24T16:25:31+00:00",
+            "UpdateTime": "2026-04-06T17:16:45+00:00",
+            "LastAccessTime": "2026-04-06T17:16:45+00:00",
+            "Retention": 0,
+            "StorageDescriptor": {
+                "Columns": [
+                    {
+                        "Name": "record",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "vss_report_type",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "vss_aggregation_level",
+                        "Type": "bigint"
+                    }
+                ],
+                "Location": "s3://itx-staging-dev/EBGR/VISA/400_vss_130_cal/",
+                "InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                "Compressed": false,
+                "NumberOfBuckets": -1,
+                "SerdeInfo": {
+                    "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    "Parameters": {
+                        "serialization.format": "1"
+                    }
+                },
+                "BucketColumns": [],
+                "SortColumns": [],
+                "Parameters": {
+                    "sizeKey": "6917",
+                    "objectCount": "2",
+                    "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                    "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                    "recordCount": "1434",
+                    "CrawlerSchemaSerializerVersion": "1.0",
+                    "averageRecordSize": "8",
+                    "partition_filtering.enabled": "true",
+                    "compressionType": "none",
+                    "CrawlerSchemaDeserializerVersion": "1.0",
+                    "classification": "parquet",
+                    "typeOfData": "file"
+                },
+                "StoredAsSubDirectories": false
+            },
+            "PartitionKeys": [
+                {
+                    "Name": "file_type",
+                    "Type": "string"
+                },
+                {
+                    "Name": "date",
+                    "Type": "string"
+                },
+                {
+                    "Name": "partition_2",
+                    "Type": "string"
+                }
+            ],
+            "TableType": "EXTERNAL_TABLE",
+            "Parameters": {
+                "sizeKey": "6917",
+                "objectCount": "2",
+                "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                "recordCount": "1434",
+                "CrawlerSchemaSerializerVersion": "1.0",
+                "averageRecordSize": "8",
+                "partition_filtering.enabled": "true",
+                "compressionType": "none",
+                "CrawlerSchemaDeserializerVersion": "1.0",
+                "classification": "parquet",
+                "typeOfData": "file"
+            },
+            "CreatedBy": "arn:aws:sts::293472517631:assumed-role/AWSGlueServiceRole-glue-crawler-s3-staging-role/AWS-Crawler",
+            "IsRegisteredWithLakeFormation": false,
+            "CatalogId": "293472517631",
+            "VersionId": "8",
+            "IsMultiDialectView": false,
+            "IsMaterializedView": false
+        },
+        {
+            "Name": "400_vss_140_cal",
+            "DatabaseName": "ebgr_visa_staging",
+            "Owner": "owner",
+            "CreateTime": "2026-03-24T16:25:31+00:00",
+            "UpdateTime": "2026-04-06T17:16:45+00:00",
+            "LastAccessTime": "2026-04-06T17:16:45+00:00",
+            "Retention": 0,
+            "StorageDescriptor": {
+                "Columns": [
+                    {
+                        "Name": "record",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "vss_report_type",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "vss_aggregation_level",
+                        "Type": "bigint"
+                    }
+                ],
+                "Location": "s3://itx-staging-dev/EBGR/VISA/400_vss_140_cal/",
+                "InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                "Compressed": false,
+                "NumberOfBuckets": -1,
+                "SerdeInfo": {
+                    "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    "Parameters": {
+                        "serialization.format": "1"
+                    }
+                },
+                "BucketColumns": [],
+                "SortColumns": [],
+                "Parameters": {
+                    "sizeKey": "3285",
+                    "objectCount": "2",
+                    "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                    "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                    "recordCount": "528",
+                    "CrawlerSchemaSerializerVersion": "1.0",
+                    "averageRecordSize": "8",
+                    "partition_filtering.enabled": "true",
+                    "compressionType": "none",
+                    "CrawlerSchemaDeserializerVersion": "1.0",
+                    "classification": "parquet",
+                    "typeOfData": "file"
+                },
+                "StoredAsSubDirectories": false
+            },
+            "PartitionKeys": [
+                {
+                    "Name": "file_type",
+                    "Type": "string"
+                },
+                {
+                    "Name": "date",
+                    "Type": "string"
+                },
+                {
+                    "Name": "partition_2",
+                    "Type": "string"
+                }
+            ],
+            "TableType": "EXTERNAL_TABLE",
+            "Parameters": {
+                "sizeKey": "3285",
+                "objectCount": "2",
+                "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                "recordCount": "528",
+                "CrawlerSchemaSerializerVersion": "1.0",
+                "averageRecordSize": "8",
+                "partition_filtering.enabled": "true",
+                "compressionType": "none",
+                "CrawlerSchemaDeserializerVersion": "1.0",
+                "classification": "parquet",
+                "typeOfData": "file"
+            },
+            "CreatedBy": "arn:aws:sts::293472517631:assumed-role/AWSGlueServiceRole-glue-crawler-s3-staging-role/AWS-Crawler",
+            "IsRegisteredWithLakeFormation": false,
+            "CatalogId": "293472517631",
+            "VersionId": "8",
+            "IsMultiDialectView": false,
+            "IsMaterializedView": false
+        },
+        {
+            "Name": "500_baseii_itx_drafts",
+            "DatabaseName": "ebgr_visa_staging",
+            "Owner": "owner",
+            "CreateTime": "2026-04-06T17:16:45+00:00",
+            "UpdateTime": "2026-04-06T17:16:45+00:00",
+            "LastAccessTime": "2026-04-06T17:16:45+00:00",
+            "Retention": 0,
+            "StorageDescriptor": {
+                "Columns": [
+                    {
+                        "Name": "record",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "source_currency_code_alphabetic",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "source_amount",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "interchange_intelica_id",
+                        "Type": "bigint"
+                    },
+                    {
+                        "Name": "interchange_fee_descriptor",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "interchange_fee_currency",
+                        "Type": "string"
+                    },
+                    {
+                        "Name": "interchange_fee_variable",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "interchange_fee_fixed",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "interchange_fee_min",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "interchange_fee_cap",
+                        "Type": "double"
+                    },
+                    {
+                        "Name": "interchange_fee_amount",
+                        "Type": "double"
+                    }
+                ],
+                "Location": "s3://itx-staging-dev/EBGR/VISA/500_baseii_itx_drafts/",
+                "InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+                "Compressed": false,
+                "NumberOfBuckets": -1,
+                "SerdeInfo": {
+                    "SerializationLibrary": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+                    "Parameters": {
+                        "serialization.format": "1"
+                    }
+                },
+                "BucketColumns": [],
+                "SortColumns": [],
+                "Parameters": {
+                    "sizeKey": "393923",
+                    "objectCount": "1",
+                    "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                    "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                    "recordCount": "35622",
+                    "CrawlerSchemaSerializerVersion": "1.0",
+                    "averageRecordSize": "16",
+                    "partition_filtering.enabled": "true",
+                    "compressionType": "none",
+                    "CrawlerSchemaDeserializerVersion": "1.0",
+                    "classification": "parquet",
+                    "typeOfData": "file"
+                },
+                "StoredAsSubDirectories": false
+            },
+            "PartitionKeys": [
+                {
+                    "Name": "file_type",
+                    "Type": "string"
+                },
+                {
+                    "Name": "date",
+                    "Type": "string"
+                },
+                {
+                    "Name": "partition_2",
+                    "Type": "string"
+                }
+            ],
+            "TableType": "EXTERNAL_TABLE",
+            "Parameters": {
+                "sizeKey": "393923",
+                "objectCount": "1",
+                "UPDATED_BY_CRAWLER": "crawler_ebgr_visa_staging",
+                "CRAWL_RUN_ID": "7ef75e29-24f1-4bbc-ab02-47aef2720f38",
+                "recordCount": "35622",
+                "CrawlerSchemaSerializerVersion": "1.0",
+                "averageRecordSize": "16",
+                "partition_filtering.enabled": "true",
+                "compressionType": "none",
+                "CrawlerSchemaDeserializerVersion": "1.0",
+                "classification": "parquet",
+                "typeOfData": "file"
+            },
+            "CreatedBy": "arn:aws:sts::293472517631:assumed-role/AWSGlueServiceRole-glue-crawler-s3-staging-role/AWS-Crawler",
+            "IsRegisteredWithLakeFormation": false,
+            "CatalogId": "293472517631",
+            "VersionId": "1",
+            "IsMultiDialectView": false,
+            "IsMaterializedView": false
+        }
+    ]
+}

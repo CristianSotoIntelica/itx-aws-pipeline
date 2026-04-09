@@ -1,0 +1,10 @@
+{
+    "PolicyNames": [
+        "AllowQueryVisaFields",
+        "DynamoDBAccess",
+        "LambdaInvokeAccess",
+        "MasterAccessPolicy",
+        "router-policy",
+        "S3StagingAccess"
+    ]
+}
