@@ -27,6 +27,7 @@ import pyarrow.parquet as pq
 from io import BytesIO
 from typing import Optional, Dict, List
 from boto3.dynamodb.conditions import Key
+import time
 
 # =============================================================================
 # CONFIGURACIÓN
@@ -157,77 +158,85 @@ def _process_sms_field_defs(field_defs: pd.DataFrame) -> pd.DataFrame:
 # MEJORA 2: dict → DataFrame en vez de concat de 250 Series
 # =============================================================================
 
-def _extract_fields(
-    data: pd.DataFrame,
-    field_defs: pd.DataFrame,
-    type_record: str
-) -> pd.DataFrame:
+def _extract_fields(data, field_defs, type_record):
 
     if data.empty or field_defs.empty:
         return pd.DataFrame()
 
-    # MEJORA 2: dict en vez de lista de Series
+    from collections import defaultdict
+    tcsn_groups = defaultdict(list)
+    for fd in field_defs.itertuples():
+        tcsn = str(fd.tcsn) if hasattr(fd, 'tcsn') else ''
+        if tcsn and tcsn in data.columns:
+            tcsn_groups[tcsn].append(fd)
+        else:
+            sec_id = str(fd.secondary_identifier).strip() \
+                     if hasattr(fd, 'secondary_identifier') \
+                     and fd.secondary_identifier \
+                     and not pd.isna(fd.secondary_identifier) else ''
+            if sec_id and sec_id in data.columns:
+                tcsn_groups[sec_id].append(fd)
+
     fields = []
 
-    # MEJORA 1: itertuples en vez de iterrows — 10x más rápido
-    for fd in field_defs.itertuples():
-        tcsn        = str(fd.tcsn)        if hasattr(fd, 'tcsn')        else ''
-        position    = int(fd.position)    if hasattr(fd, 'position')    else 0
-        length      = int(fd.length)      if hasattr(fd, 'length')      else 0
-        column_name = str(fd.column_name) if hasattr(fd, 'column_name') else ''
+    for tcsn, fds in tcsn_groups.items():
+        col = data[tcsn]
 
-        if not tcsn or not column_name or position <= 0 or length <= 0:
-            continue
-        if tcsn not in data.columns:
-            continue
+        for fd in fds:
+            position    = int(fd.position)    if hasattr(fd, 'position')    else 0
+            length      = int(fd.length)      if hasattr(fd, 'length')      else 0
+            column_name = str(fd.column_name) if hasattr(fd, 'column_name') else ''
 
-        sec_id = fd.secondary_identifier \
-                 if hasattr(fd, 'secondary_identifier') else None
+            if not column_name or position <= 0 or length <= 0:
+                continue
 
-        if not sec_id or pd.isna(sec_id) or str(sec_id).strip() == '':
-            data_view = data
-        else:
-            sec_id     = str(sec_id).strip()
-            sec_id_pos = int(fd.secondary_identifier_pos) \
-                         if hasattr(fd, 'secondary_identifier_pos') \
-                         and fd.secondary_identifier_pos else 0
-            sec_id_len = int(fd.secondary_identifier_len) \
-                         if hasattr(fd, 'secondary_identifier_len') \
-                         and fd.secondary_identifier_len else 0
+            sec_id = fd.secondary_identifier \
+                     if hasattr(fd, 'secondary_identifier') else None
 
-            if sec_id_pos > 0 and sec_id_len > 0:
-                try:
-                    data_view = data[
-                        data[tcsn].str.slice(
-                            start=sec_id_pos - 1,
-                            stop=sec_id_pos - 1 + sec_id_len
-                        ) == sec_id
-                    ]
-                except Exception:
-                    data_view = data
+            sec_id_str = str(sec_id).strip() if sec_id and not pd.isna(sec_id) else ''
+
+            # ← CAMBIO: agrega "or tcsn == sec_id_str" para detectar caso SMS
+            # SMS: tcsn fue reasignado a "22200", sec_id_str también es "22200"
+            # → son iguales → no hay filtro adicional de filas
+            if not sec_id_str or tcsn == sec_id_str:
+                col_view = col
             else:
-                data_view = data
+                sec_id_pos = int(fd.secondary_identifier_pos) \
+                             if hasattr(fd, 'secondary_identifier_pos') \
+                             and fd.secondary_identifier_pos else 0
+                sec_id_len = int(fd.secondary_identifier_len) \
+                             if hasattr(fd, 'secondary_identifier_len') \
+                             and fd.secondary_identifier_len else 0
 
-        try:
-            field = pd.Series(
-                data_view[tcsn].str.slice(
-                    start=position - 1,
-                    stop=position - 1 + length
-                ),
-                name=column_name
-            )
-            fields.append(field)
-        except Exception:
-            continue
+                if sec_id_pos > 0 and sec_id_len > 0:
+                    try:
+                        mask     = col.str.slice(sec_id_pos-1, sec_id_pos-1+sec_id_len) == sec_id_str
+                        col_view = col[mask]
+                    except Exception:
+                        col_view = col
+                else:
+                    col_view = col
+
+            try:
+                field = pd.Series(
+                    col_view.str.slice(
+                        start=position - 1,
+                        stop=position - 1 + length
+                    ).reindex(data.index, fill_value=''),
+                    name=column_name
+                )
+                fields.append(field)
+            except Exception:
+                continue
 
     if not fields:
         return pd.DataFrame()
 
-    # Lista de Series para un concat seguro (Garantiza el esquema de PyArrow)
     extract_df = pd.concat(fields, axis=1).fillna('').astype(str)
+    extract_df = extract_df.reset_index(drop=True)
 
     if 'record' in data.columns:
-        extract_df.insert(0, 'record', data['record'].values)
+        extract_df.insert(0, 'record', data['record'].reset_index(drop=True).values)
 
     return extract_df
 
@@ -260,14 +269,20 @@ def extract_output(
     special_processing = config.get('special_processing')
 
     try:
+        t0 = time.time()
         field_defs = _load_field_definitions(type_record, sort_by)
+        logger.info(f"  [TIMING] DynamoDB load: {time.time()-t0:.2f}s ({len(field_defs)} fields)")
+
         if field_defs.empty:
             return None
 
         if special_processing == 'sms':
             field_defs = _process_sms_field_defs(field_defs)
 
-        file_obj      = _get_s3_file_object(input_s3_key)
+        t1 = time.time()
+        file_obj = _get_s3_file_object(input_s3_key)
+        logger.info(f"  [TIMING] S3 download: {time.time()-t1:.2f}s")
+
         parquet_file  = pq.ParquetFile(file_obj)
         output_s3_key = input_s3_key.replace(input_subdir, output_subdir)
         output_buffer = BytesIO()
@@ -283,24 +298,33 @@ def extract_output(
             if chunk_df.empty:
                 continue
 
-            batch_num      += 1
+            batch_num += 1
+            t_batch = time.time()
+
+            t_conv = time.time()
             extracted_chunk = _extract_fields(chunk_df, field_defs, type_record)
+            t_extract = time.time() - t_conv
 
             if extracted_chunk.empty:
                 continue
 
+            t_arrow = time.time()
             extracted_table = pa.Table.from_pandas(extracted_chunk)
+            t_arrow = time.time() - t_arrow
 
             if writer is None:
-                writer       = pq.ParquetWriter(
-                    output_buffer, extracted_table.schema, compression='snappy'
-                )
+                writer       = pq.ParquetWriter(output_buffer, extracted_table.schema, compression='snappy')
                 fields_count = len(extracted_chunk.columns)
 
+            t_write = time.time()
             writer.write_table(extracted_table)
+            t_write = time.time() - t_write
+
             records_written += len(extracted_chunk)
+            t_total = time.time() - t_batch
             logger.info(f"  Batch {batch_num}: +{len(extracted_chunk):,} records "
-                        f"(total: {records_written:,})")
+                        f"(total: {records_written:,}) | "
+                        f"extract={t_extract:.2f}s arrow={t_arrow:.2f}s write={t_write:.2f}s total={t_total:.2f}s")
 
         if writer is None:
             logger.warning(f"No valid records for {output_type}")
@@ -309,14 +333,11 @@ def extract_output(
         writer.close()
         output_buffer.seek(0)
 
+        t_upload = time.time()
         logger.info(f"Uploading to S3: {output_s3_key}")
-        s3.put_object(
-            Bucket=STAGING_BUCKET,
-            Key=output_s3_key,
-            Body=output_buffer.getvalue()
-        )
-        logger.info(f"Done: {records_written:,} records, "
-                    f"{fields_count} fields, {batch_num} batches")
+        s3.put_object(Bucket=STAGING_BUCKET, Key=output_s3_key, Body=output_buffer.getvalue())
+        logger.info(f"  [TIMING] S3 upload: {time.time()-t_upload:.2f}s")
+        logger.info(f"Done: {records_written:,} records, {fields_count} fields, {batch_num} batches")
 
         file_obj.close()
         output_buffer.close()

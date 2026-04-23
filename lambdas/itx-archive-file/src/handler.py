@@ -1,101 +1,331 @@
 """
-Lambda: Archive File
-====================
-Mueve archivo procesado de Landing a Archive bucket.
+Lambda Archive - itx-archive-file
+==================================
+Mueve el archivo original de landing a operational/originals comprimido en ZIP.
+Se ejecuta SIEMPRE al final del pipeline — éxito o fallo.
 
-Referencia: file_receiver.py líneas 383-388
-    fs.move_file(
-        source_path=filepath,
-        target_layer=FileStorage.Layer.OPERATIONAL,
-        client_id=client_id,
-        target_subdir="originals"
-    )
+Estrategia de compresión (streaming):
+  - Lee el archivo de S3 en chunks de COMPRESS_CHUNK_SIZE (nunca > 8MB en RAM)
+  - Escribe directamente al ZIP en /tmp usando zipfile.ZIP_DEFLATED
+  - Sube el ZIP a operational usando multipart upload (para archivos > 100MB)
+  - Elimina el original de landing solo después de verificar el ZIP en destino
 
-Estructura en Archive (mismo particionamiento que Staging):
-    s3://itx-archive-bucket/{client}/{brand}/{file_type}/{date}/{filename}
+Por qué ZIP y no GZ:
+  - Ya tienes itx-unzip — formato consistente en todo el sistema
+  - Python nativo: no requiere librerías externas
+  - Compatible con herramientas estándar del negocio bancario
+
+Por qué /tmp y no BytesIO:
+  - Un archivo de 1.5GB comprime a ~200MB
+  - /tmp de Lambda tiene 512MB por defecto (suficiente para el ZIP)
+  - BytesIO cargaría el ZIP completo en RAM — innecesario
+
+Estructura de destino:
+  {client_id}/originals/{brand}/{file_type}/{year}/{month}/{filename}.zip
+
+Ejemplo:
+  EBGR/originals/VISA/IN/2026/04/I479273260330.zip
+  SBSA/originals/VISA/OUT/2026/04/VISA_Outward_Settlement_SBSA_20260404.TXT.zip
+
+Variables de entorno:
+  S3_BUCKET_LANDING        : bucket origen (landing)
+  S3_BUCKET_OPERATIONAL    : bucket destino (operational)
+  COMPRESS_CHUNK_SIZE_MB   : tamaño de chunk para comprimir (default: 8MB)
 """
 
 import os
-import json
+import zipfile
 import logging
 import boto3
+from datetime import datetime
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
 s3 = boto3.client('s3')
 
-LANDING_BUCKET = os.environ['S3_BUCKET_LANDING']
-ARCHIVE_BUCKET = os.environ['S3_BUCKET_ARCHIVE']
+LANDING_BUCKET       = os.environ.get('S3_BUCKET_LANDING')
+OPERATIONAL_BUCKET   = os.environ.get('S3_BUCKET_OPERATIONAL')
+COMPRESS_CHUNK_BYTES = int(os.environ.get('COMPRESS_CHUNK_SIZE_MB', '8')) * 1024 * 1024
 
+# Umbral para usar multipart upload (100MB)
+MULTIPART_THRESHOLD = 100 * 1024 * 1024
+
+
+# =============================================================================
+# CONSTRUCCIÓN DEL PATH DE DESTINO
+# =============================================================================
+
+def _build_archive_key(
+    client_id: str,
+    brand: str,
+    file_type: str,
+    file_date: str,
+    filename: str
+) -> str:
+    """
+    Construye el S3 key de destino en operational/originals.
+
+    Estructura:
+      {client_id}/originals/{brand}/{file_type}/{year}/{month}/{filename}.zip
+
+    Ejemplo:
+      EBGR/originals/VISA/IN/2026/04/I479273260330.zip
+    """
+    try:
+        dt    = datetime.strptime(file_date, "%Y-%m-%d")
+        year  = dt.strftime("%Y")
+        month = dt.strftime("%m")
+    except (ValueError, TypeError):
+        now   = datetime.utcnow()
+        year  = now.strftime("%Y")
+        month = now.strftime("%m")
+        logger.warning(f"Could not parse file_date '{file_date}' — using current date")
+
+    # Agregar .zip si el archivo original no es ya un ZIP
+    zip_filename = filename if filename.lower().endswith('.zip') else f"{filename}.zip"
+
+    return f"{client_id}/originals/{brand}/{file_type}/{year}/{month}/{zip_filename}"
+
+
+# =============================================================================
+# COMPRESIÓN EN STREAMING
+# =============================================================================
+
+def _compress_and_save_to_tmp(
+    source_bucket: str,
+    source_key: str,
+    filename: str,
+    tmp_path: str
+) -> int:
+    """
+    Lee el archivo de S3 en chunks y lo escribe comprimido en /tmp.
+    Nunca tiene más de COMPRESS_CHUNK_BYTES en RAM al mismo tiempo.
+
+    Retorna el tamaño del ZIP resultante en bytes.
+    """
+    logger.info(f"Compressing s3://{source_bucket}/{source_key}")
+    logger.info(f"  Chunk size: {COMPRESS_CHUNK_BYTES // 1024 // 1024}MB")
+    logger.info(f"  Destination: {tmp_path}")
+
+    response = s3.get_object(Bucket=source_bucket, Key=source_key)
+    body     = response['Body']
+    file_size = response.get('ContentLength', 0)
+
+    logger.info(f"  Source size: {file_size / 1024 / 1024:.1f}MB")
+
+    bytes_read = 0
+
+    with zipfile.ZipFile(tmp_path, 'w', zipfile.ZIP_DEFLATED, compresslevel=6) as zf:
+        with zf.open(filename, 'w') as zip_entry:
+            while True:
+                chunk = body.read(COMPRESS_CHUNK_BYTES)
+                if not chunk:
+                    break
+                zip_entry.write(chunk)
+                bytes_read += len(chunk)
+
+    zip_size = os.path.getsize(tmp_path)
+    compression_ratio = (1 - zip_size / file_size) * 100 if file_size > 0 else 0
+
+    logger.info(f"  Bytes read:      {bytes_read / 1024 / 1024:.1f}MB")
+    logger.info(f"  ZIP size:        {zip_size / 1024 / 1024:.1f}MB")
+    logger.info(f"  Compression:     {compression_ratio:.1f}% reduction")
+
+    return zip_size
+
+
+# =============================================================================
+# SUBIDA A S3 — SIMPLE O MULTIPART SEGÚN TAMAÑO
+# =============================================================================
+
+def _upload_zip_to_s3(tmp_path: str, dest_bucket: str, dest_key: str, zip_size: int) -> None:
+    """
+    Sube el ZIP desde /tmp a S3.
+
+    Para archivos < 100MB: put_object simple
+    Para archivos >= 100MB: multipart upload
+      → recomendado por AWS para archivos grandes
+      → más eficiente en red y más tolerante a fallos
+    """
+    if zip_size < MULTIPART_THRESHOLD:
+        logger.info(f"Uploading (simple): s3://{dest_bucket}/{dest_key}")
+        with open(tmp_path, 'rb') as f:
+            s3.put_object(
+                Bucket=dest_bucket,
+                Key=dest_key,
+                Body=f,
+                ContentType='application/zip'
+            )
+    else:
+        logger.info(f"Uploading (multipart): s3://{dest_bucket}/{dest_key}")
+        mpu = s3.create_multipart_upload(
+            Bucket=dest_bucket,
+            Key=dest_key,
+            ContentType='application/zip'
+        )
+        upload_id = mpu['UploadId']
+        parts     = []
+        part_num  = 1
+
+        try:
+            with open(tmp_path, 'rb') as f:
+                while True:
+                    chunk = f.read(MULTIPART_THRESHOLD)  # partes de 100MB
+                    if not chunk:
+                        break
+                    response = s3.upload_part(
+                        Bucket=dest_bucket,
+                        Key=dest_key,
+                        UploadId=upload_id,
+                        PartNumber=part_num,
+                        Body=chunk
+                    )
+                    parts.append({
+                        'PartNumber': part_num,
+                        'ETag': response['ETag']
+                    })
+                    logger.info(f"  Part {part_num} uploaded ({len(chunk) / 1024 / 1024:.1f}MB)")
+                    part_num += 1
+
+            s3.complete_multipart_upload(
+                Bucket=dest_bucket,
+                Key=dest_key,
+                UploadId=upload_id,
+                MultipartUpload={'Parts': parts}
+            )
+            logger.info(f"Multipart upload completed: {part_num - 1} parts")
+
+        except Exception as e:
+            # Cancelar el multipart upload para no dejar partes huérfanas en S3
+            logger.error(f"Multipart upload failed — aborting: {str(e)}")
+            s3.abort_multipart_upload(
+                Bucket=dest_bucket,
+                Key=dest_key,
+                UploadId=upload_id
+            )
+            raise
+
+
+# =============================================================================
+# VERIFICACIÓN Y LIMPIEZA
+# =============================================================================
+
+def _verify_upload(bucket: str, key: str) -> bool:
+    """Verifica que el ZIP existe en S3 antes de eliminar el original."""
+    try:
+        s3.head_object(Bucket=bucket, Key=key)
+        return True
+    except Exception as e:
+        logger.error(f"Verification failed for s3://{bucket}/{key}: {str(e)}")
+        return False
+
+
+def _delete_from_landing(bucket: str, key: str) -> None:
+    """Elimina el archivo original de landing. Solo se llama tras verificación exitosa."""
+    logger.info(f"Deleting from landing: s3://{bucket}/{key}")
+    s3.delete_object(Bucket=bucket, Key=key)
+    logger.info("Deleted from landing — landing is now clean")
+
+
+def _cleanup_tmp(tmp_path: str) -> None:
+    """Elimina el archivo temporal de /tmp para liberar espacio."""
+    try:
+        if os.path.exists(tmp_path):
+            os.remove(tmp_path)
+            logger.info(f"Cleaned up tmp: {tmp_path}")
+    except Exception as e:
+        logger.warning(f"Could not clean tmp file: {str(e)}")
+
+
+# =============================================================================
+# HANDLER PRINCIPAL
+# =============================================================================
 
 def lambda_handler(event, context):
     """
-    Mueve archivo de Landing a Archive y lo elimina de Landing.
-    
-    Input (desde Step Functions):
+    Entry point del Lambda archive.
+
+    Input (desde Step Functions — PrepareArchiveInput):
     {
-        "bucket_landing": "itx-landing-bucket",
-        "s3_key_landing": "EBGR/VS.EBGR.TC00.2025015.001.txt",
-        "client_id": "EBGR",
-        "brand": "VISA",
-        "file_type": "IN",
-        "file_date": "2025-01-15",
-        "content_hash": "A1B2C3D4..."
+        "file_id":        "ABC123",
+        "client_id":      "EBGR",
+        "brand":          "VISA",
+        "file_type":      "IN",
+        "file_date":      "2026-04-03",
+        "s3_key_landing": "EBGR/I479273260330",
+        "bucket_landing": "itx-landing-dev"
+    }
+
+    Output:
+    {
+        "status":      "ARCHIVED",
+        "file_id":     "ABC123",
+        "archive_key": "EBGR/originals/VISA/IN/2026/04/I479273260330.zip"
     }
     """
-    logger.info(f"Event: {json.dumps(event)}")
-    
+    logger.info("=" * 60)
+    logger.info("ITX ARCHIVE LAMBDA - START")
+    logger.info(f"Config: chunk={COMPRESS_CHUNK_BYTES // 1024 // 1024}MB")
+    logger.info("=" * 60)
+
+    if not OPERATIONAL_BUCKET:
+        raise ValueError("Missing environment variable: S3_BUCKET_OPERATIONAL")
+
+    file_id        = event.get('file_id')
+    client_id      = event.get('client_id')
+    brand          = event.get('brand')
+    file_type      = event.get('file_type')
+    file_date      = event.get('file_date')
+    s3_key_landing = event.get('s3_key_landing')
+    bucket_landing = event.get('bucket_landing', LANDING_BUCKET)
+
+    if not all([file_id, client_id, brand, file_type, file_date, s3_key_landing]):
+        raise ValueError(
+            f"Missing required fields — received: "
+            f"file_id={file_id}, client_id={client_id}, brand={brand}, "
+            f"file_type={file_type}, file_date={file_date}, "
+            f"s3_key_landing={s3_key_landing}"
+        )
+
+    filename    = s3_key_landing.split('/')[-1]
+    archive_key = _build_archive_key(client_id, brand, file_type, file_date, filename)
+    tmp_path    = f"/tmp/{filename}.zip"
+
+    logger.info(f"Archiving: {filename}")
+    logger.info(f"  Source:  s3://{bucket_landing}/{s3_key_landing}")
+    logger.info(f"  Dest:    s3://{OPERATIONAL_BUCKET}/{archive_key}")
+
     try:
-        # Extraer parámetros
-        bucket_landing = event.get('bucket_landing', LANDING_BUCKET)
-        s3_key_landing = event['s3_key_landing']
-        client_id = event['client_id']
-        brand = event['brand']
-        file_type = event['file_type']  # 'IN' o 'OUT'
-        file_date = event['file_date']
-        
-        # Extraer nombre del archivo del key
-        filename = s3_key_landing.split('/')[-1]
-        
-        # Construir key en Archive (mismo particionamiento que Staging)
-        # Estructura: {client}/{brand}/{file_type}/{date}/{filename}
-        archive_key = f"{client_id}/{brand}/{file_type}/{file_date}/{filename}"
-        
-        logger.info(f"Archivando: s3://{bucket_landing}/{s3_key_landing}")
-        logger.info(f"Destino: s3://{ARCHIVE_BUCKET}/{archive_key}")
-        
-        # 1. Copiar a Archive
-        s3.copy_object(
-            CopySource={'Bucket': bucket_landing, 'Key': s3_key_landing},
-            Bucket=ARCHIVE_BUCKET,
-            Key=archive_key,
-            StorageClass='STANDARD'  # Lifecycle lo moverá a Glacier después
+        # Paso 1 — Comprimir en streaming a /tmp
+        zip_size = _compress_and_save_to_tmp(
+            source_bucket=bucket_landing,
+            source_key=s3_key_landing,
+            filename=filename,
+            tmp_path=tmp_path
         )
-        
-        logger.info(f"✅ Copiado a Archive")
-        
-        # 2. Eliminar de Landing (mantener Landing limpio)
-        s3.delete_object(
-            Bucket=bucket_landing,
-            Key=s3_key_landing
-        )
-        
-        logger.info(f"🗑️ Eliminado de Landing")
-        
+
+        # Paso 2 — Subir ZIP a operational (simple o multipart según tamaño)
+        _upload_zip_to_s3(tmp_path, OPERATIONAL_BUCKET, archive_key, zip_size)
+
+        # Paso 3 — Verificar que el ZIP existe en destino
+        if not _verify_upload(OPERATIONAL_BUCKET, archive_key):
+            raise RuntimeError(
+                f"Archive verification failed — ZIP not found at destination. "
+                f"Landing file preserved: s3://{bucket_landing}/{s3_key_landing}"
+            )
+
+        # Paso 4 — Eliminar de landing (solo si verificación fue exitosa)
+        _delete_from_landing(bucket_landing, s3_key_landing)
+
+        logger.info(f"=== Archived successfully: {archive_key} ===")
+
         return {
-            'status': 'ARCHIVED',
-            'source': f"s3://{bucket_landing}/{s3_key_landing}",
-            'destination': f"s3://{ARCHIVE_BUCKET}/{archive_key}",
-            'deleted_from_landing': True
+            'status':      'ARCHIVED',
+            'file_id':     file_id,
+            'archive_key': archive_key,
         }
-        
-    except Exception as e:
-        logger.error(f"Error archivando: {e}", exc_info=True)
-        # No fallar el pipeline por error de archivado
-        # El archivo quedará en Landing y se puede archivar manualmente
-        return {
-            'status': 'ARCHIVE_FAILED',
-            'error': str(e),
-            'deleted_from_landing': False
-        }
+
+    finally:
+        # Limpiar /tmp siempre — éxito o fallo
+        _cleanup_tmp(tmp_path)

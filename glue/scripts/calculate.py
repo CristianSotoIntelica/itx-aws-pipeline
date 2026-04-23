@@ -333,7 +333,7 @@ def calc_authorization_code_valid_draft(df: DataFrame) -> DataFrame:
 def calc_authorization_code_valid_sms(df: DataFrame) -> DataFrame:
     """authorization_code_valid para SMS usando authorization_id_resp._code"""
     invalid_suffixes = [" ", "0000", "00000", "0000n", "0000p", "0000y"]
-    col_name = "`authorization_id_resp._code`"
+    col_name = "authorization_id_resp_code"
     
     return df.withColumn(
         "calc_authorization_code_valid",
