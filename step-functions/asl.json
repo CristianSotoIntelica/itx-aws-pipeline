@@ -7,7 +7,7 @@
             "Comment": "Ejecuta TODOS los transforms (BASEII + SMS + VSS) - Paso 1",
             "Resource": "arn:aws:states:::lambda:invoke",
             "Parameters": {
-                "FunctionName": "itl-0004-itx-dev-intchg-02-itx-transform",
+                "FunctionName": "itl-0004-itx-dev-intchg-02-lmbd-vi-transform",
                 "Payload.$": "$"
             },
             "ResultPath": "$.transform_result",
@@ -124,7 +124,7 @@
             "Comment": "Extrae campos específicos de los Parquets - Paso 2",
             "Resource": "arn:aws:states:::lambda:invoke",
             "Parameters": {
-                "FunctionName": "itl-0004-itx-dev-intchg-02-itx-extract",
+                "FunctionName": "itl-0004-itx-dev-intchg-02-lmbd-vi-extract",
                 "Payload.$": "$.extract_input"
             },
             "ResultPath": "$.extract_result",
@@ -226,7 +226,7 @@
             "Comment": "Limpia y convierte tipos de datos - Paso 3",
             "Resource": "arn:aws:states:::lambda:invoke",
             "Parameters": {
-                "FunctionName": "itl-0004-itx-dev-intchg-02-itx-clean",
+                "FunctionName": "itl-0004-itx-dev-intchg-02-lmbd-vi-clean",
                 "Payload.$": "$.clean_input"
             },
             "ResultPath": "$.clean_result",
@@ -352,8 +352,8 @@
                 "file_type.$": "$.clean_result.file_type",
                 "file_date.$": "$.clean_result.file_date",
                 "content_hash.$": "$.clean_result.content_hash",
-                "staging_bucket": "itl-0004-itx-dev-poc-02-staging",
-                "reference_bucket": "itl-0004-itx-dev-poc-02-reference"
+                "staging_bucket": "itl-0004-itx-dev-intchg-02-s3-staging",
+                "reference_bucket": "itl-0004-itx-dev-intchg-02-s3-reference"
             },
             "ResultPath": "$.calculate_input",
             "Next": "Calculate"
@@ -363,7 +363,7 @@
             "Comment": "Calcula campos adicionales - Paso 4 (Glue Job PySpark)",
             "Resource": "arn:aws:states:::glue:startJobRun.sync",
             "Parameters": {
-                "JobName": "itl-0004-itx-dev-intchg-02-calculate",
+                "JobName": "itl-0004-itx-dev-intchg-02-glue-vi-calculate",
                 "Arguments": {
                     "--outputs.$": "States.JsonToString($.calculate_input.outputs)",
                     "--client_id.$": "$.calculate_input.client_id",
@@ -500,8 +500,8 @@
                 "file_type.$": "$.final_success_info.file_type",
                 "file_date.$": "$.final_success_info.file_date",
                 "content_hash.$": "$.final_success_info.content_hash",
-                "staging_bucket": "itl-0004-itx-dev-poc-02-staging",
-                "reference_bucket": "itl-0004-itx-dev-poc-02-reference"
+                "staging_bucket": "itl-0004-itx-dev-intchg-02-s3-staging",
+                "reference_bucket": "itl-0004-itx-dev-intchg-02-s3-reference"
             },
             "ResultPath": "$.interchange_input",
             "Next": "Interchange"
@@ -511,7 +511,7 @@
             "Comment": "Asigna reglas de interchange y calcula tarifas - Paso 5 (Glue Job PySpark)",
             "Resource": "arn:aws:states:::glue:startJobRun.sync",
             "Parameters": {
-                "JobName": "itl-0004-itx-dev-intchg-02-interchange",
+                "JobName": "itl-0004-itx-dev-intchg-02-glue-vi-interchange",
                 "Arguments": {
                     "--outputs.$": "States.JsonToString($.interchange_input.outputs)",
                     "--client_id.$": "$.interchange_input.client_id",
@@ -619,8 +619,8 @@
                 "file_type.$": "$.interchange_input.file_type",
                 "file_date.$": "$.interchange_input.file_date",
                 "content_hash.$": "$.interchange_input.content_hash",
-                "staging_bucket": "itl-0004-itx-dev-poc-02-staging",
-                "operational_bucket": "itl-0004-itx-dev-poc-02-operational"
+                "staging_bucket": "itl-0004-itx-dev-intchg-02-s3-staging",
+                "operational_bucket": "itl-0004-itx-dev-intchg-02-s3-operational"
             },
             "ResultPath": "$.store_input",
             "Next": "Store"
@@ -630,7 +630,7 @@
             "Comment": "Consolida CLN + CAL + ITX en Parquet final en operational - Paso 6",
             "Resource": "arn:aws:states:::lambda:invoke",
             "Parameters": {
-                "FunctionName": "itl-0004-itx-dev-intchg-02-itx-store",
+                "FunctionName": "itl-0004-itx-dev-intchg-02-lmbd-vi-store",
                 "Payload.$": "$.store_input"
             },
             "ResultPath": "$.store_result",
@@ -755,7 +755,7 @@
             "Comment": "Mueve el archivo original de landing a operational/originals - SIEMPRE se ejecuta",
             "Resource": "arn:aws:states:::lambda:invoke",
             "Parameters": {
-                "FunctionName": "itl-0004-itx-dev-intchg-02-itx-archive-file",
+                "FunctionName": "itl-0004-itx-dev-intchg-02-lmbd-archive-file",
                 "Payload.$": "$.archive_input"
             },
             "ResultPath": "$.archive_result",
