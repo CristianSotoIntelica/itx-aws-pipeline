@@ -317,6 +317,9 @@ def store_output(
 
             merged = merged.reset_index()
 
+            for col_name in merged.select_dtypes(include='object').columns:
+                merged[col_name] = merged[col_name].where(pd.notna(merged[col_name]), other=None)
+
             # Convertir a PyArrow
             merged_table = pa.Table.from_pandas(merged)
 
