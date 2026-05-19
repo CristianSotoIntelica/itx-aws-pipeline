@@ -62,14 +62,21 @@ def load_visa_ardef(reference_bucket: str, file_date: date) -> DataFrame:
     path = f"s3://{reference_bucket}/visa_ardef/data.parquet"
     log_info(f"Loading ARDEF from: {path}")
 
-    # Leer en Pandas — tabla de referencia pequeña, cabe en el driver
-    ardef_pd = spark.read.parquet(path).toPandas()
-
     file_date_str = file_date.strftime("%Y-%m-%d") if isinstance(file_date, date) else str(file_date)
     file_date_obj = pd.to_datetime(file_date_str).date()
 
-    # 1. Filtrar por delete_indicator
-    ardef_pd = ardef_pd[ardef_pd["delete_indicator"] == " "]
+    # Filtrar en Spark antes de toPandas - reduce de 600k filas a solo filas válidas
+
+    ardef_pd = (
+        spark.read.parquet(path)
+        .filter(F.col("delete_indicator") == " ")
+        .filter(F.col("effective_date") <= file_date_str)
+        .filter(
+            F.col("valid_until").isNull() |
+            (F.col("valid_until") >= file_date_str)
+        )
+        .toPandas()
+    )
 
     # 2. Convertir fechas
     ardef_pd["effective_date"] = pd.to_datetime(
