@@ -29,7 +29,7 @@ Ejemplo:
 
 Variables de entorno:
   S3_BUCKET_LANDING        : bucket origen (landing)
-  S3_BUCKET_OPERATIONAL    : bucket destino (operational)
+  S3_BUCKET_ARCHIVE         : bucket destino (Archive)
   COMPRESS_CHUNK_SIZE_MB   : tamaño de chunk para comprimir (default: 8MB)
 """
 
@@ -45,8 +45,8 @@ logger.setLevel(logging.INFO)
 s3 = boto3.client('s3')
 
 LANDING_BUCKET       = os.environ.get('S3_BUCKET_LANDING')
-OPERATIONAL_BUCKET   = os.environ.get('S3_BUCKET_OPERATIONAL')
-COMPRESS_CHUNK_BYTES = int(os.environ.get('COMPRESS_CHUNK_SIZE_MB', '8')) * 1024 * 1024
+ARCHIVE_BUCKET   = os.environ.get('S3_BUCKET_ARCHIVE')
+COMPRESS_CHUNK_BYTES = int(os.environ.get('COMPRESS_CHUNK_SIZE_MB', '32')) * 1024 * 1024
 
 # Umbral para usar multipart upload (100MB)
 MULTIPART_THRESHOLD = 100 * 1024 * 1024
@@ -269,8 +269,8 @@ def lambda_handler(event, context):
     logger.info(f"Config: chunk={COMPRESS_CHUNK_BYTES // 1024 // 1024}MB")
     logger.info("=" * 60)
 
-    if not OPERATIONAL_BUCKET:
-        raise ValueError("Missing environment variable: S3_BUCKET_OPERATIONAL")
+    if not ARCHIVE_BUCKET:
+        raise ValueError("Missing environment variable: S3_BUCKET_ARCHIVE")
 
     file_id        = event.get('file_id')
     client_id      = event.get('client_id')
@@ -294,7 +294,7 @@ def lambda_handler(event, context):
 
     logger.info(f"Archiving: {filename}")
     logger.info(f"  Source:  s3://{bucket_landing}/{s3_key_landing}")
-    logger.info(f"  Dest:    s3://{OPERATIONAL_BUCKET}/{archive_key}")
+    logger.info(f"  Dest:    s3://{ARCHIVE_BUCKET}/{archive_key}")
 
     try:
         # Paso 1 — Comprimir en streaming a /tmp
@@ -306,10 +306,10 @@ def lambda_handler(event, context):
         )
 
         # Paso 2 — Subir ZIP a operational (simple o multipart según tamaño)
-        _upload_zip_to_s3(tmp_path, OPERATIONAL_BUCKET, archive_key, zip_size)
+        _upload_zip_to_s3(tmp_path, ARCHIVE_BUCKET, archive_key, zip_size)
 
         # Paso 3 — Verificar que el ZIP existe en destino
-        if not _verify_upload(OPERATIONAL_BUCKET, archive_key):
+        if not _verify_upload(ARCHIVE_BUCKET, archive_key):
             raise RuntimeError(
                 f"Archive verification failed — ZIP not found at destination. "
                 f"Landing file preserved: s3://{bucket_landing}/{s3_key_landing}"
