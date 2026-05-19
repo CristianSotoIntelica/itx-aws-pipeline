@@ -353,7 +353,8 @@
                 "file_date.$": "$.clean_result.file_date",
                 "content_hash.$": "$.clean_result.content_hash",
                 "staging_bucket": "itl-0004-itx-dev-intchg-02-s3-staging",
-                "reference_bucket": "itl-0004-itx-dev-intchg-02-s3-reference"
+                "reference_bucket": "itl-0004-itx-dev-intchg-02-s3-reference",
+                "dynamodb_table_client": "itl-0004-itx-dev-dynamo-cliente-02"
             },
             "ResultPath": "$.calculate_input",
             "Next": "Calculate"
@@ -373,7 +374,8 @@
                     "--file_date.$": "$.calculate_input.file_date",
                     "--content_hash.$": "$.calculate_input.content_hash",
                     "--staging_bucket.$": "$.calculate_input.staging_bucket",
-                    "--reference_bucket.$": "$.calculate_input.reference_bucket"
+                    "--reference_bucket.$": "$.calculate_input.reference_bucket",
+                    "--dynamodb_table_client.$": "$.calculate_input.dynamodb_table_client"
                 }
             },
             "ResultPath": "$.calculate_job_result",

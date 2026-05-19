@@ -157,10 +157,10 @@ def load_currency_table(reference_bucket: str) -> DataFrame:
 # HELPERS: CARGA DE DATOS DEL CLIENTE (DynamoDB)
 # =============================================================================
 
-def get_client_data(client_id: str) -> dict:
+def get_client_data(client_id: str, dynamodb_table_client: str) -> dict:
     """Obtiene metadatos del cliente desde DynamoDB."""
     dynamodb = boto3.resource('dynamodb')
-    table = dynamodb.Table('itx-client')
+    table = dynamodb.Table(dynamodb_table_client)
     
     response = table.get_item(Key={'client_id': client_id})
     
@@ -1285,7 +1285,7 @@ def process_output(output_config: dict, staging_bucket: str, reference_bucket: s
 def main():
     args = getResolvedOptions(sys.argv, [
         'JOB_NAME', 'client_id', 'file_id', 'file_type', 'file_date',
-        'staging_bucket', 'reference_bucket', 'outputs'
+        'staging_bucket', 'reference_bucket', 'outputs', 'dynamodb_table_client'
     ])
     
     job = Job(glueContext)
@@ -1297,6 +1297,7 @@ def main():
     file_date = args['file_date']
     staging_bucket = args['staging_bucket']
     reference_bucket = args['reference_bucket']
+    dynamodb_table_client = args['dynamodb_table_client']
     outputs = json.loads(args['outputs'])
     
     log_info("=" * 70)
@@ -1309,11 +1310,12 @@ def main():
     log_info(f"Staging Bucket:   {staging_bucket}")
     log_info(f"Reference Bucket: {reference_bucket}")
     log_info(f"Outputs:          {len(outputs)}")
+    log_info(f"DynamoDB client table: {dynamodb_table_client}")
     log_info("=" * 70)
     
     # Cargar datos del cliente
     log_info(f"Loading client data: {client_id}")
-    client_data = get_client_data(client_id)
+    client_data = get_client_data(client_id, dynamodb_table_client)
     
     # Convertir file_date
     try:
