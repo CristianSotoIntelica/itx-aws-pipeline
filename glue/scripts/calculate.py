@@ -73,6 +73,7 @@ def load_visa_ardef(reference_bucket: str, file_date: date) -> DataFrame:
         .filter(F.col("effective_date") <= file_date_str)
         .filter(
             F.col("valid_until").isNull() |
+            (F.col("valid_until") == "") | 
             (F.col("valid_until") >= file_date_str)
         )
         .toPandas()
